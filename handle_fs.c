@@ -8,10 +8,12 @@
  *@index: index for the buffer
  *Return: number of printed charecters if success, -1 if failed
  */
-int HANDLE_FS(char *format, int i, char buffer[], int index, va_list arg)
+int HANDLE_FS(const char *format, int i, char buffer[], int index, va_list arg)
 {
 	int i = 0;
 
 	int (*ptrfunc[])(const char *, va_list) = {hand_char, hand_str,
 	hand_per};
+
+	(*ptrfunc[format[i]])(format, arg);
 }
