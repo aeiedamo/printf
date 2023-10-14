@@ -19,10 +19,7 @@ int _putc(char c)
 
 int _puts(const char *str)
 {
-	int counter;
-	char *s;
-
-	for (s = str; *s; s++)
-		counter++;
+	int counter = _strlen(str);
+	
 	return(write(1, &str, counter));
 }
