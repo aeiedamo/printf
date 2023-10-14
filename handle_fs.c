@@ -6,22 +6,12 @@
  *@i: index for the string format
  *@buffer: buffer
  *@index: index for the buffer
- *Return: number of ptinted charecters
+ *Return: number of printed charecters if success, -1 if failed
  */
 int HANDLE_FS(char *format, int i, char buffer[], int index, va_list arg)
 {
-int i = 0;
-int fun = 'num of funcs'
-HANDLE arr []=
-{
-{'c', hand_char}, {'%', hand_per}, {'s', hand_str}
-};
+	int i = 0;
 
-for (i = 0; i < fun; ++i)
-{
-	if (format[i] == arr[i].FS)
-	return (arr[i].Fs());
-}
-
-return (-1);
+	int (*ptrfunc[])(const char *, va_list) = {hand_char, hand_str,
+	hand_per};
 }
