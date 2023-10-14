@@ -19,5 +19,10 @@ int _putc(char c)
 
 int _puts(const char *str)
 {
-	return(write(1, &str, 1));
+	int counter;
+	char *s;
+
+	for (s = str; *s; s++)
+		counter++;
+	return(write(1, &str, counter));
 }
