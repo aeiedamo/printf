@@ -14,26 +14,26 @@ va_list arg;
 va_start(arg, format);
 
 if (!format)
-    return (-1);
+	return (-1);
 
 while (format[i] != '\0')
 {
-    if (format[i] != '%')
-    {
-        buffer[index++] = format[i];
-        if (index == MAXBUFFER)
-        print_buf(buffer, &index);
-        ++count;
-    }
-    else
-    {
-    HANDLE_FS();
-    }
+	if (format[i] != '%')
+	{
+		buffer[index++] = format[i];
+		if (index == MAXBUFFER)
+		print_buf(buffer, &index);
+		++count;
+	}
+	else
+	{
+	HANDLE_FS();
+	}
 
-    if (index > 0)
+	if (index > 0)
 	print_buf(buffer,&index);
 
-    ++i;
+	++i;
 }
 
 
