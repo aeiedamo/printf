@@ -8,7 +8,7 @@
 
 int _printf (const char *format, ...)
 {
-int count = 0, index = 0;
+int count = 0, index = 0, i = 0;
 char buffer[MAXBUFFER];
 va_list arg;
 va_start(arg, format);
@@ -16,17 +16,24 @@ va_start(arg, format);
 if (!format)
     return (-1);
 
-while (*format)
+while (format[i] != '\0')
 {
-    if (*format != '%')
+    if (format[i] != '%')
     {
-        buffer[index++] = *format;
+        buffer[index++] = format[i];
         if (index == MAXBUFFER)
-        printbuf(buffer, &index);
+        print_buf(buffer, &index);
         ++count;
     }
+    else
+    {
+    HANDLE_FS();
+    }
 
-    ++format;
+    if (index > 0)
+	print_buf(buffer,&index);
+
+    ++i;
 }
 
 
