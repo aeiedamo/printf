@@ -1,10 +1,9 @@
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
 
-int main()
-{
+int main() {
     char c = 'R';
     char *s = "string";
-    _printf("this is a char : (%c) and this is a string : (%s)",c, s);
-    return (0);
+    _printf("This is a char: (%c) and this is a string: (%s) and this is percent : (%%) ", c, s);
+    return 0;
 }

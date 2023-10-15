@@ -8,20 +8,21 @@
  *@index: index for the buffer
  *Return: number of printed charecters if success, -1 if failed
  */
-int HANDLE_FS(const char *format, int i, char buffer[], int *index, va_list arg)
+int HANDLE_FS(const char *format, int *i, char buffer[], va_list arg)
 {
 int n, fun = 6;
-
 HANDLE arr[] = {
     {'c', hand_char},
     {'%', hand_per},
     {'s', hand_str}
 };
+	 ++*i; 
 
 	for (n = 0; n < fun; ++n) 
 	{ 
-		if (format[i + 1] == arr[n].FS) 
+		if (format[*i] == arr[n].FS) 
 		{
+			/* ++*i; */
 		return (arr[n].F(arg, buffer));
 		}
 	}

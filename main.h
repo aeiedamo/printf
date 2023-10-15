@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
-
+#include <string.h>
 
 #define MAXBUFFER 1024
 #define UNUSE(X) (void)(X)
@@ -18,7 +18,7 @@ typedef struct str
 
 
 int _printf (const char *format, ...);
-int HANDLE_FS(char *, int, char [], int *, va_list);
+int HANDLE_FS(const char *format, int *i, char buffer[], va_list arg);
 int _puts(const char *str);
 int _strlen(const char *str);
 void print_buf(char buffer[], int *index);

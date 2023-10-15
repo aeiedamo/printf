@@ -15,8 +15,9 @@
 
  int hand_per (va_list arg, char buffer[])
  {
+	char per;
 	UNUSE (arg);
-	char per = '%';
+	 per = '%';
 	return (write_char(per, buffer));
  }
 

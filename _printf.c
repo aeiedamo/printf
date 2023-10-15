@@ -10,7 +10,6 @@ int _printf (const char *format, ...)
 {
 int count = 0, index = 0, i = 0, count2 = 0;
 char buffer[MAXBUFFER];
-const char *string = format;
 va_list arg;
 
 if (!format)
@@ -30,8 +29,8 @@ if (!format)
 		else
 		{
 		print_buf(buffer, &index);
-		count2 = HANDLE_FS(string, i, buffer, &index, arg);
-
+		count2 = HANDLE_FS(format, &i, buffer, arg);
+			
 		count += count2; 
 
 		}
