@@ -10,7 +10,9 @@
 int main(void)
 {
     char str[] = "Hello, World";
-
-    _printf("%s", str);
+    char c = '%';
+    int len;
+    len = _printf("%s this is char %c", str, c);
+    printf(" %d", len);
     return (0);
 }
