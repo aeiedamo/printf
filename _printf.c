@@ -8,7 +8,7 @@
 
 int _printf (const char *format, ...)
 {
-	int count = 0, index = 0, i = 0, count2 = 0;
+	int count = 0, index = 0, i, count2 = 0;
 	char buffer[MAXBUFFER];
 	va_list arg;
 	
@@ -21,6 +21,7 @@ int _printf (const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
+			buffer[index++] = format[i];
 			_putc(format[i]);
 			++count;
 		}
