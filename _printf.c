@@ -15,24 +15,32 @@ int _printf (const char *format, ...)
 
 	buffer.len = 0;
 	va_start(args, format);
-	for (i = 0; format[i] != 0 && buffer.len < 1024; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
-			buffer.data[buffer.len++] = format[i];
+		{
+			buffer.data[buffer.len] = format[i];
+			buffer.len++;
+		}
 		else
 		{
 			i++;
 			switch(format[i])
 			{
 			case 'c':
-				buffer.data[buffer.len++] = va_arg(args, int);
+				buffer.data[buffer.len] = va_arg(args, int);
+				buffer.len++;
 				break;
 			case '%':
-				buffer.data[buffer.len++] = '%';
+				buffer.data[buffer.len] = '%';
+				buffer.len++;
 				break;
 			case 's':
 				printstring(&buffer, args);
 				break;
+			default:
+				break;
+
 			}
 		}
 	}
