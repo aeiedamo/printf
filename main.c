@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-  int len, len2;
+  int len, len2, num = -1024;
  /* char c1 = 'A', c2 = 'B', c3 = 'C'; */
   char *s1 = "str1";
     /* printf("  %d", len); */
@@ -17,8 +17,9 @@ int main(void)
 
    len = _printf("Let's try to printf a simple sentence. %s\n", s1);
   len2 = 0;
+
    _printf("done\n");
-  _printf("\nis it %d or %d",len, len2);
+  _printf("\nis it %d or %d and %d",len, len2, num);
 
     return (0);
 }
