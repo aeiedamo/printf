@@ -14,12 +14,7 @@ int _printf (const char *format, ...)
 	va_list args;
 
 	buffer.len = 0;
-	
-	if (format == NULL)
-		return (-1);
-
 	va_start(args, format);
-
 	for (i = 0; format[i] != 0 && buffer.len < 1024; i++)
 	{
 		if (format[i] != '%')
@@ -43,10 +38,7 @@ int _printf (const char *format, ...)
 	}
 
 	va_end(args);
-
-	for(i = 0; i < buffer.len; i++)
-		putchar(buffer.data[i]);
-
+	write(1, &buffer.data, buffer.len);
 	return (buffer.len);
 }
 
