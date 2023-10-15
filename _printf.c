@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * _printf - function to print strings to stdout.
@@ -71,7 +70,7 @@ buf *printstring(buf *buffer, va_list args)
 
 	str = va_arg(args, char *);
 
-	for (i = 0; i < (int) strlen(str); i++, buffer->len++)
+	for (i = 0; i < _strlen(str); i++, buffer->len++)
 		buffer->data[buffer->len] = str[i];
 	
 	return (buffer);
