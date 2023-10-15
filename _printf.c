@@ -21,8 +21,7 @@ int _printf (const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			index++;
-			buffer[index] = format[i];
+			buffer[index++] = format[i];
 			if (index == MAXBUFFER)
 				print_buf(buffer, &index);
 			count++;
