@@ -2,19 +2,26 @@
 
 int write_char(char c)
 {
-    char buf[1];
-    buf[0] = c;
-    return (write(1,buf,1));
+    char buf_c[2];
+    buf_c[0] = c;
+    buf_c[1] = '\0';
+
+	if (buf_c[0] !=  '\0')
+    return (write(1,&buf_c[0],1));
+
+	return (-1);
 }
 
 int write_string(char *str, char buffer[])
 {
+	/* char buf_s[MAXBUFFER]; */
 	int len;
    	if (str == NULL)
    		return (-1);
+
 	UNUSE (buffer);
-	len = _strlen(str);
-/*	strncpy(buffer,str, len); */
+
+	len = strlen(str);
 	
-	return (write(1,str, len));
+	return (write(1, &str[0], len));
 }

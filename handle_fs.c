@@ -20,12 +20,11 @@ int HANDLE_FS(const char *format, int *i, char buffer[], va_list arg)
 
 	for (n = 0; n < fun; ++n) 
 	{ 
-		if (format[*i] == arr[n].FS) 
+		if (format[*i] == arr[n].FS)
 		{
-			/*i++;*/
 			return (arr[n].F(arg, buffer));
 		}
 	}
-
+	
 	 return (-1);
 }
