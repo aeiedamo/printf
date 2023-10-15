@@ -17,7 +17,7 @@
  {
 	char per;
 	UNUSE (arg);
-	 per = '%';
+	per = '%';
 	return (write_char(per, buffer));
  }
 

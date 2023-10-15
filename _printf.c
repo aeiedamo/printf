@@ -8,12 +8,12 @@
 
 int _printf (const char *format, ...)
 {
-int count = 0, index = 0, i = 0, count2 = 0;
-char buffer[MAXBUFFER];
-va_list arg;
-
-if (!format)
-	return (-1);
+	int count = 0, index = 0, i = 0, count2 = 0;
+	char buffer[MAXBUFFER];
+	va_list arg;
+	
+	if (!format)
+		return (-1);
 
 	va_start(arg, format);
 
@@ -21,27 +21,27 @@ if (!format)
 	{
 		if (format[i] != '%')
 		{
-		buffer[index++] = format[i];
-		if (index == MAXBUFFER)
-		print_buf(buffer, &index);
-		++count;
+			buffer[index++] = format[i];
+			if (index == MAXBUFFER)
+				print_buf(buffer, &index);
+			++count;
 		}
+			
 		else
 		{
-		print_buf(buffer, &index);
-		count2 = HANDLE_FS(format, &i, buffer, arg);
-			
-		count += count2; 
-
+			print_buf(buffer, &index);
+			count2 = HANDLE_FS(format, &i, buffer, arg);			
+			count += count2;
 		}
-				++i;
+		++i;
 	}
 
-		if (index > 0)
+	if (index > 0)
 		print_buf(buffer, &index);
 
+	va_end(arg);
 
-return (count);
+	return (count);
 }
 
 /**
@@ -51,8 +51,8 @@ return (count);
 */
 void print_buf(char buffer[], int *index)
 {
-if (*index > 0)
-write(1, buffer, *index);
+	if (*index > 0)
+		write(1, buffer, *index);
 
-*index = 0;
+	*index = 0;
 }

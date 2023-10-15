@@ -17,7 +17,7 @@ int _putc(char c)
  * Return: 1 if success, -1 otherwise
 */
 
-int _puts(const char *str)
+int _puts(const char str[])
 {
 	int counter = _strlen(str);
 	

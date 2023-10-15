@@ -10,20 +10,20 @@
  */
 int HANDLE_FS(const char *format, int *i, char buffer[], va_list arg)
 {
-int n, fun = 6;
-HANDLE arr[] = {
-    {'c', hand_char},
-    {'%', hand_per},
-    {'s', hand_str}
-};
+	int n, fun = 3;
+	HANDLE arr[] = {
+		{'c', hand_char},
+		{'%', hand_per},
+		{'s', hand_str}
+	};
 	 ++*i; 
 
 	for (n = 0; n < fun; ++n) 
 	{ 
 		if (format[*i] == arr[n].FS) 
 		{
-			/* ++*i; */
-		return (arr[n].F(arg, buffer));
+			/*i++;*/
+			return (arr[n].F(arg, buffer));
 		}
 	}
 

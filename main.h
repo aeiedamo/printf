@@ -19,7 +19,8 @@ typedef struct str
 
 int _printf (const char *format, ...);
 int HANDLE_FS(const char *format, int *i, char buffer[], va_list arg);
-int _puts(const char *str);
+int _putc(char c);
+int _puts(const char str[]);
 int _strlen(const char *str);
 void print_buf(char buffer[], int *index);
 int hand_char(va_list arg, char buffer[]);
