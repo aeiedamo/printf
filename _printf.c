@@ -11,10 +11,11 @@ int _printf (const char *format, ...)
 int count = 0, index = 0, i = 0, count2 = 0;
 char buffer[MAXBUFFER];
 va_list arg;
-va_start(arg, format);
 
 if (!format)
 	return (-1);
+
+	va_start(arg, format);
 
 	while (format[i] != '\0')
 	{
@@ -28,9 +29,10 @@ if (!format)
 		else
 		{
 		print(buffer, index);
-		count2 = HANDLE_FS(format, i, buffer, index, va_list arg);
+		count2 = HANDLE_FS(format, i, buffer, index, arg);
 
 		count += count2; 
+		
 		}
 				++i;
 	}
@@ -43,7 +45,7 @@ return (count);
 }
 
 /**
-* print_buf - free buffer 
+* print_buf - print buffer 
 *@buffer: the buffer
 *@index: track buffer
 */
