@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _printf - function to print strings to stdout.
@@ -8,42 +9,45 @@
 
 int _printf (const char *format, ...)
 {
-	int count = 0, index = 0, i, count2 = 0;
-	char buffer[MAXBUFFER];
-	va_list arg;
+	int i;
+	buf buffer;
+	va_list args;
+
+	buffer.len = 0;
 	
 	if (format == NULL)
 		return (-1);
 
-	va_start(arg, format);
+	va_start(args, format);
 
-	for (i = 0; format[i] != 0; i++)
+	for (i = 0; format[i] != 0 && buffer.len < 1024; i++)
 	{
 		if (format[i] != '%')
-		{
-			buffer[index++] = format[i];
-			if (index == MAXBUFFER)
-				print_buf(buffer, &index);
-			count++;
-		}
-			
+			buffer.data[buffer.len++] = format[i];
 		else
 		{
-			if (index > 0)
+			i++;
+			switch(format[i])
 			{
-				print_buf(buffer, &index); }
-
-			count2 = HANDLE_FS(format, &i, buffer, arg);			
-			count = count + count2;
+			case 'c':
+				buffer.data[buffer.len++] = va_arg(args, int);
+				break;
+			case '%':
+				buffer.data[buffer.len++] = '%';
+				break;
+			case 's':
+				printstring(&buffer, args);
+				break;
+			}
 		}
 	}
 
-	if (index > 0)
-		print_buf(buffer, &index);
+	va_end(args);
 
-	va_end(arg);
+	for(i = 0; i < buffer.len; i++)
+		putchar(buffer.data[i]);
 
-	return (count);
+	return (buffer.len);
 }
 
 /**
@@ -57,4 +61,18 @@ void print_buf(char buffer[], int *index)
 		write(1, buffer, *index);
 
 	*index = 0;
+}
+
+
+buf *printstring(buf *buffer, va_list args)
+{
+	char *str;
+	int i;
+
+	str = va_arg(args, char *);
+
+	for (i = 0; i < (int) strlen(str); i++, buffer->len++)
+		buffer->data[buffer->len] = str[i];
+	
+	return (buffer);
 }

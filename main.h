@@ -17,6 +17,13 @@ typedef struct str
 } HANDLE;
 
 
+typedef struct buf
+{
+	int len;
+	char data[1024];    
+} buf;
+
+
 int _printf (const char *format, ...);
 int HANDLE_FS(const char *format, int *i, char buffer[], va_list arg);
 int _putc(char c);
@@ -30,6 +37,8 @@ int hand_numd (va_list arg);
 int convertnum(int num);
 int write_char(char c);
 int write_string(char *str);
+
+buf *printstring(buf *buffer, va_list args);
 
 
 
