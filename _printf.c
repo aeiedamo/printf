@@ -29,13 +29,10 @@ int _printf (const char *format, ...)
 			
 		else
 		{
-			if (index > 0)
+			/* if (index > 0)*/
 			print_buf(buffer, &index);
-
-			if (format [i + 1] != '\0')
-			{
 			count2 = HANDLE_FS(format, &i, buffer, arg);			
-			count += count2; }
+			count += count2; 
 		}
 	}
 

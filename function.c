@@ -19,11 +19,13 @@
  */
  int hand_per (va_list arg, char buffer[])
  {
+	int count;
 	char per;
 	UNUSE (arg);
 	UNUSE (buffer);
 	per = '%';
-	return (write_char(per));
+	count = write_char(per);
+	return (count);
  }
 
 /**
@@ -34,7 +36,12 @@
  */
  int hand_str(va_list arg, char buffer[])
  {
+	int count;
 	char *str = va_arg(arg, char*);
-	return(write_string(str, buffer));
-
+	count = write_string(str, buffer);
+	if (count == -1)
+	{
+		return (-1);
+	}
+	return (count);
  }

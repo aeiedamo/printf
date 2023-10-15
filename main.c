@@ -9,11 +9,10 @@
  */
 int main(void)
 {
-    char str[] = "Hello, World";
-    char *str2 = "world , hello";
-    char c = '%';
-    int len;
-    len = _printf("%s this is char %c  %s", str, c, str2);
+    int len = 0;
+  char str[] = "LATTERS";
+  char c = 'R';
+    len = _printf("to day lesson : (%s) for %s : (%c) %%100 awowsme fs",str , str, c);
     printf("  %d", len);
     return (0);
 }

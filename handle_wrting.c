@@ -1,27 +1,39 @@
 #include "main.h"
 
-int write_char(char c)
-{
-    char buf_c[2];
+int write_char(char c) {
+    int count = 0;
+	char buf_c[2];
     buf_c[0] = c;
     buf_c[1] = '\0';
 
-	if (buf_c[0] !=  '\0')
-    return (write(1,&buf_c[0],1));
+    count = write(1, &buf_c[0], 1);
 
-	return (-1);
+    if (count == -1)
+	{
+        return (-1); }
+
+    return (1);
 }
 
-int write_string(char *str, char buffer[])
-{
-	/* char buf_s[MAXBUFFER]; */
-	int len;
-   	if (str == NULL)
-   		return (-1);
+int write_string(char *str, char buffer[]) {
+    int len, count = 0, i = 0, n = 0;
+    if (str == NULL) {
+        return (-1);
+    }
+    len = strlen(str);
+    for (i = 0; i < len; ++i)
+	{
+        buffer[i] = str[n];
+        if (i == MAXBUFFER)
+		 {
+            print_buf(buffer, &i);
+            count += i; }
+        ++n; }
 
-	UNUSE (buffer);
+    if (i > 0) {
+        print_buf(buffer, &i);
+        count += i;
+    }
 
-	len = strlen(str);
-	
-	return (write(1, &str[0], len));
+    return count;
 }
