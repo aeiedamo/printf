@@ -10,6 +10,12 @@ int _printf(const char *format, ...)
 	buffer b;
 	int i;
 	va_list args;
+	funs func[] = {
+		{'s', savestring}
+	};
+	int cnt_func = 1; /*number of functions*/
+	int temp;
+	
 
 	if (format == NULL || (format[0] == '%' && format[1] == 0))
 		return (-1);
@@ -21,22 +27,27 @@ int _printf(const char *format, ...)
 		{
 			b.d[b.l] = format[i];
 			b.l++;
-			continue;
 		}
-		i++;
-		switch (format[i])
+		else
 		{
-			case 'c':
-				b.d[b.l] = va_arg(args, int);
-				b.l++;
-				break;
-			case 's':
-				savestring(&b, args);
-				break;
+			i++;
+			switch(format[i])
+			{
 			case '%':
-				b.d[b.l] = '%';
+			case 'c':
+				b.d[b.l] = format[i];
 				b.l++;
 				break;
+			default:
+				temp = 0;
+				while (temp < cnt_func)
+				{
+					if (format[i] == func[temp].cmp)
+						func[temp].fun(&b, args);
+					temp++;
+				}
+				break;
+			}
 		}
 	}
 	va_end(args);

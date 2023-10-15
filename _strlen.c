@@ -7,9 +7,9 @@
 */
 int _strlen(const char *str)
 {
-	const char *s;
+	const char *s = str;
 
-	for (s = str; *s; ++s)
+	for (; *s; ++s)
 		;
 	return (s - str);
 }

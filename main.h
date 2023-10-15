@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <string.h>
 
 typedef struct buffer {
 	/*string d stores all to-be-printed data*/
@@ -13,6 +14,16 @@ typedef struct buffer {
 	int l;
 } buffer;
 
+typedef struct funs
+{
+	char cmp;
+	buffer *(*fun)(buffer *, va_list);
+} funs;
+
+
+/*directs the _printf to the proper function*/
 int _printf(const char *format, ...);
-buffer *savestring(buffer *b, va_list args);
 int _strlen(const char *str);
+int _strcmp(const char *s1, const char *s2);
+
+buffer *savestring(buffer *, va_list);
