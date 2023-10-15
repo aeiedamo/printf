@@ -6,6 +6,7 @@ buffer *_handle(buffer *b, va_list args, char c)
 	{
 		case '%':
 			b->d[b->l] = '%';
+			b->l++;
 			break;
 		case 'c':
 			b->d[b->l] = va_arg(args, int);
@@ -13,6 +14,12 @@ buffer *_handle(buffer *b, va_list args, char c)
 			break;
 		case 's':
 			savestring(b, args);
+			break;
+		case 'r':
+			b->d[b->l] = '%';
+			b->l++;
+			b->d[b->l] = 'r';
+			b->l++;
 			break;
 		default:
 			b->d[b->l] = c;
