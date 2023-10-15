@@ -17,7 +17,7 @@ int _printf (const char *format, ...)
 
 	va_start(arg, format);
 
-	while (format[i] != '\0')
+	for (i = 0; format[i] != 0; i++)
 	{
 		if (format[i] != '%')
 		{
@@ -31,7 +31,6 @@ int _printf (const char *format, ...)
 			count2 = HANDLE_FS(format, &i, buffer, arg);			
 			count += count2;
 		}
-		++i;
 	}
 
 	if (index > 0)
