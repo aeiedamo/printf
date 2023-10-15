@@ -8,7 +8,7 @@
  *@index: index for the buffer
  *Return: number of printed charecters if success, -1 if failed
  */
-int HANDLE_FS(const char *format, int i, char buffer[], int index, va_list arg)
+int HANDLE_FS(const char *format, int i, char buffer[], int *index, va_list arg)
 {
 int n, fun = 6;
 

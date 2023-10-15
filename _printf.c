@@ -28,17 +28,17 @@ if (!format)
 		}
 		else
 		{
-		print(buffer, index);
-		count2 = HANDLE_FS(format, i, buffer, index, arg);
+		print_buf(buffer, &index);
+		count2 = HANDLE_FS(format, i, buffer, &index, arg);
 
 		count += count2; 
-		
+
 		}
 				++i;
 	}
 
 		if (index > 0)
-		print_buf(buffer, index);
+		print_buf(buffer, &index);
 
 
 return (count);
@@ -56,4 +56,3 @@ write(1, buffer, index);
 
 *index = 0;
 }
- 
