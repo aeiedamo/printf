@@ -10,19 +10,20 @@
  */
 int HANDLE_FS(const char *format, int *i, char buffer[], va_list arg)
 {
-	int n, fun = 3, count = 0;
+	int n, fun = 4, count = 0;
 	HANDLE arr[] = {
 		{'c', hand_char},
 		{'%', hand_per},
-		{'s', hand_str}
+		{'s', hand_str},
+		{'d', hand_numd}
 	};
 	 ++*i; 
-
+	UNUSE (buffer);
 	for (n = 0; n < fun; ++n) 
 	{ 
 		if (format[*i] == arr[n].FS)
 		{
-	count = (arr[n].F(arg, buffer));
+	count = (arr[n].F(arg));
 	return (count);
 		}
 	}

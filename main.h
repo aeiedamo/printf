@@ -13,7 +13,7 @@
 typedef struct str
 {
     char FS;
-    int (*F)(va_list , char[]);
+    int (*F)(va_list);
 } HANDLE;
 
 
@@ -23,11 +23,13 @@ int _putc(char c);
 int _puts(const char str[]);
 int _strlen(const char *str);
 void print_buf(char buffer[], int *index);
-int hand_char(va_list arg, char buffer[]);
-int hand_per (va_list arg, char buffer[]);
-int hand_str(va_list arg, char buffer[]);
+int hand_char(va_list arg);
+int hand_per (va_list arg);
+int hand_str(va_list arg);
+int hand_numd (va_list arg);
+int convertnum(int num);
 int write_char(char c);
-int write_string(char *str, char buffer[]);
+int write_string(char *str);
 
 
 
