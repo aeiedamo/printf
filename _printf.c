@@ -24,7 +24,11 @@ int _printf (const char *format, ...)
 			index++;
 			buffer[index] = format[i];
 			if (index == MAXBUFFER)
+<<<<<<< HEAD
 				print_buf(buffer &index);
+=======
+				print_buf(buffer, &index);
+>>>>>>> e9345de (return prev code)
 			count++;
 		}
 			
