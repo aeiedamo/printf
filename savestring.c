@@ -8,12 +8,11 @@
 */
 buffer *savestring(buffer *b, va_list args)
 {
-        int i;
-        char *str;
-        
-        str = va_arg(args, char *);
-        for (i = 0; i < (int) strlen(str); i++, b->l++)
-                b->d[b->l] = str[i];
-        
-        return (b);
+	int i;
+	char *str;
+
+	str = va_arg(args, char *);
+	for (i = 0; i < (int) strlen(str); i++, b->l++)
+		b->d[b->l] = str[i];
+	return (b);
 }

@@ -10,7 +10,6 @@ int _printf(const char *format, ...)
 	buffer b;
 	int i;
 	va_list args;
-	
 
 	if (format == NULL || (format[0] == '%' && format[1] == 0))
 		return (-1);

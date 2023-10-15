@@ -10,6 +10,6 @@ int _strlen(const char *str)
 	const char *s = str;
 
 	for (; *s; ++s)
-		;
+	;
 	return (s - str);
 }
