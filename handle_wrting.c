@@ -10,13 +10,12 @@ int write_char(char c, char buffer[])
 
 int write_string(char *str, char buffer[])
 {
-    int len;
-   if (str == NULL)
-    {
-        return (-1); }
+	int len;
+   	if (str == NULL)
+   		return (-1);
 
-    len = strlen(str);
-    strncpy(buffer,str, len);
-
-    return (write(1,buffer, len));
+	len = _strlen(str);
+	strncpy(buffer,str, len);
+	
+	return (write(1,buffer, len));
 }
