@@ -12,7 +12,7 @@ int _printf (const char *format, ...)
 	char buffer[MAXBUFFER];
 	va_list arg;
 	
-	if (!format)
+	if (format == NULL)
 		return (-1);
 
 	va_start(arg, format);

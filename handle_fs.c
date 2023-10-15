@@ -17,16 +17,19 @@ int HANDLE_FS(const char *format, int *i, char buffer[], va_list arg)
 		{'s', hand_str},
 		{'d', hand_numd}
 	};
-	 ++*i; 
 	UNUSE (buffer);
-	for (n = 0; n < fun; ++n) 
+
+	if (format[*i] == '%')
 	{ 
+		++*i;
+		for (n = 0; n < fun; ++n) 
+		{ 
 		if (format[*i] == arr[n].FS)
 		{
-	count = (arr[n].F(arg));
-	return (count);
+		count = (arr[n].F(arg));
+		return (count);
+		}
 		}
 	}
-	
 	 return (-1);
 }
