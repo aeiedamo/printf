@@ -39,7 +39,8 @@ int _printf(const char *format, ...);
 int _strlen(const char *str);
 int _strcmp(const char *s1, const char *s2);
 char *itoa(int val, int base);
-int _handle(buffer *, va_list, char);
-int savestring(buffer *, va_list);
-int saveint(buffer *, va_list);
+buffer* _handle(buffer *, va_list, char);
+buffer* savestring(buffer *, va_list);
+buffer* saveint(buffer *, va_list);
+
 #endif

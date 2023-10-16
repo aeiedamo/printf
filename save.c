@@ -6,9 +6,9 @@
  * @args: arguments
  * Return: new length
 */
-int savestring(buffer *b, va_list args)
+buffer* savestring(buffer *b, va_list args)
 {
-	int i, count;
+	int i;
 	char *str;
 	str = va_arg(args, char *);
 	if(str == NULL)
@@ -18,18 +18,10 @@ int savestring(buffer *b, va_list args)
 
 	for (i = 0; i < _strlen(str); i++, b->l++)
 	{
-		if (b->l <= 1023)
-		{
 		b->d[b->l] = str[i];
-		}
-		else
-		{
-			count += b->l; 
-			write(1, &b->d, b->l);
-			b->l = 0;
-		}
 	}
-	return (count);
+
+	return (b);
 }
 
 /**
@@ -39,12 +31,11 @@ int savestring(buffer *b, va_list args)
  * Return: new length
 */
 
-int saveint(buffer *b, va_list args)
+buffer* saveint(buffer *b, va_list args)
 {
-	int num, i, count;
+	int num, i;
 	char *num2str;
 	num = va_arg(args, int);
-
 	if (num < 0)
 	{
 		num = -num;
@@ -56,14 +47,14 @@ int saveint(buffer *b, va_list args)
 	{
 		if (b->l >= 1023)
 		{
-			count += b->l;
 			write(1, &b->d, b->l);
 			b->l = 0;
 		}
 		b->d[b->l] = num2str[i];
 		b->l++;
 	}
-	return (count);
+
+	return (b);
 }
 
 
@@ -86,19 +77,17 @@ char *itoa(int val, int base)
 
 }
 
-/**
- * saveadd - save addesss
+
+ /**binnary - save addesss
  * @b: buffer
  * @arg: argument contain the address
  * Return: length of address
+ */
 
-int saveadd (buffer *b, va_list arg)
+int binary(buffer *b, va_list arg)
 {
-	int *add;
-	int count = 0, ad;
-	ad = va_arg(arg, int);
-	add = ad;
-	count = atioa(add, 16);
-	
+int num;
+int *num_bin;
+num = va_arg(arg, int);
+	num = itoa(num, 2);
 }
-*/

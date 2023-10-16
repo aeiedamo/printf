@@ -19,26 +19,28 @@ int _printf(const char *format, ...)
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
-		{
-			b.d[b.l++] = format[i];
+		{	
 			if (b.l >= 1023)
 			{
-			count += b.l;
-			write(1, &b.d, b.l);
-			b.l = 0;
+				count += b.l;
+				write(1, &b.d, b.l);
+				b.l = 0;
 			}
+		b.d[b.l++] = format[i];
 		}
 		else
 		{	
 			i++;
-			count += _handle(&b, args, format[i]);
+			_handle(&b, args, format[i]);
 		}
 	}
 	va_end(args);
 	if (b.l > 0)
 	{
-	write(1, &b.d, b.l);
-	count += b.l;
+		count += b.l;
+		write(1, &b.d, b.l);
+		b.l = 0;
 	}
-	return (count);
+
+	return(count);
 }
