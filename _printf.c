@@ -44,3 +44,10 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+
+
+void _puts(const char *str)
+{
+	for (; *str; str++)
+		_putchar(str);
+}
