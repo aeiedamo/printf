@@ -67,7 +67,7 @@ buffer* saveint(buffer *b, va_list args)
 
 char *itoa(int val, int base)
 {
-	static char buf[32] = {0};
+	static char buf[64] = {0};
 	int i = 30;
 
 	for (; val && i ; --i, val /= base)

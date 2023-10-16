@@ -9,18 +9,17 @@
  */
 int main(void)
 {
-_printf("css%ccs%scscscs\n", 'T', "Test");
-printf("css%ccs%scscscs", 'T', "Test");
-printf("\nseparate\n");
+ int num = 42;
+    int num2 = -123;
 
-_printf(NULL);
-printf("\nseparate\n");
+    int len = _printf("The value of num is: %d\n", num);
+    int len2 = printf("The value of num is: %d\n", num);
 
+    int len3 = _printf("The value of num2 is: %i\n", num2);
+    int len4 = printf("The value of num2 is: %i\n", num2);
 
-_printf("%K");
-_printf("%K\n");
-
-
+    printf("Lengths for num (custom printf): [%d, %d]\n", len, len2);
+    printf("Lengths for num2 (custom printf): [%d, %d]\n", len3, len4);
   
     return (0);
 }
