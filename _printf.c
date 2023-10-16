@@ -30,6 +30,6 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 	b.d[b.l] = '\0';
-	write(1, b.d, b.l);
+	fwrite(b.d, b.l, 1, stdout);
 	return (b.l);
 }
