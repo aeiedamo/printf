@@ -4,9 +4,6 @@ buffer* _handle(buffer *b, va_list args, char c, int *n)
 {
 	switch (c)
 	{
-		case ('%'):
-			b->d[b->l++] = '%';
-			break;
 		case ('c'):
 			c = va_arg(args, int);
 			b->d[b->l++] = c;
@@ -29,8 +26,9 @@ buffer* _handle(buffer *b, va_list args, char c, int *n)
 			b->d[b->l] = 'r';
 			b->l++;
 			break;
+		case ('%'):
 		default:
-		n += 0;
+			b->d[b->l++] = c;
 			break;
 	}
 
