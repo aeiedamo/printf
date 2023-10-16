@@ -19,20 +19,6 @@ typedef struct buffer
 } buffer;
 
 
-
-/**
- * struct funs - to point to functions
- * @cmp: char to compare
- * @fun: pointer to function
- */
-typedef struct funs
-{
-	char cmp;
-
-	buffer *(*fun)(buffer *, va_list);
-} funs;
-
-
 /*directs the _printf to the proper function*/
 int _printf(const char *format, ...);
 int _strlen(const char *str);
