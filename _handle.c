@@ -2,14 +2,19 @@
 
 buffer *_handle(buffer *b, va_list args, char c)
 {
+	char ch;
+
 	switch (c)
 	{
+		case 0:
+			break;
 		case '%':
 			b->d[b->l] = '%';
 			b->l++;
 			break;
 		case 'c':
-			b->d[b->l] = va_arg(args, int);
+			c = va_arg(args, int);
+			b->d[b->l] = c;
 			b->l++;
 			break;
 		case 's':
