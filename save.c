@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * savestring - to add content of string to the buffer
  * @b: pointer to the buffer
@@ -35,8 +34,14 @@ buffer *saveint(buffer *b, va_list args)
 {
 	int num, i;
 	char *num2str;
-
 	num = va_arg(args, int);
+
+	if (num < 0)
+	{
+		num = -num;
+		b->d[b->l++] = '-';
+	}
+
 	num2str = itoa(num, 10);
 	for (i = 0; num2str[i] != '\0'; i++)
 	{
