@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	buffer b;
 	va_list args;
 
-	if (!format || format == NULL || format == empty || format == perc)
+	if (format == NULL || format == empty || format == perc)
 		return (-1);
 
 	b.l = 0;
