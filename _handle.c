@@ -1,6 +1,6 @@
 #include "main.h"
 
-buffer* _handle(buffer *b, va_list args, char c)
+buffer* _handle(buffer *b, va_list args, char c, int *n)
 {
 	switch (c)
 	{
@@ -11,7 +11,7 @@ buffer* _handle(buffer *b, va_list args, char c)
 		case 'c':
 			c = va_arg(args, int);
 			b->d[b->l] = c;
-			b->l++; 
+			b->l++;
 			break;
 		case 's':
 		savestring(b, args);
@@ -31,6 +31,9 @@ buffer* _handle(buffer *b, va_list args, char c)
 			b->d[b->l] = 'r';
 			b->l++;
 			break;
+			default:
+				--*n;
+				break;
 	}
 
 	return (b);

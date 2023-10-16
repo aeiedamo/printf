@@ -14,13 +14,10 @@ printf("css%ccs%scscscs", 'T', "Test");
 printf("\nseparate\n");
 
 _printf(NULL);
-
-printf("\nseparate\n");
-_printf("%c", '\0');
-printf("%c", '\0');
 printf("\nseparate\n");
 
-_printf("%");
+
+_printf("%K");
 _printf("%K\n");
 
 
