@@ -18,7 +18,13 @@ buffer* savestring(buffer *b, va_list args)
 
 	for (i = 0; i < _strlen(str); i++, b->l++)
 	{
-		b->d[b->l++] = str[i];
+		if(b->l <= 1023)
+		{
+			b->d[b->l] = '\0';
+			write(1, &b.d, b.l);
+			b->l = 0;
+		}
+		b->d[b->l] = str[i];
 	}
 
 	return (b);
@@ -35,17 +41,8 @@ buffer* saveint(buffer *b, va_list args)
 {
 	int num, i;
 	char *num2str;
-	int *check_null;
-
 	num = va_arg(args, int);
-	check_null = &num;
 
-	if (check_null == NULL)
-	{
-    b->d[b->l++] = '0';
-    return (b);
-	}
-	
 	if (num < 0 && num != 0)
 	{
 		num = -num;
@@ -55,7 +52,7 @@ buffer* saveint(buffer *b, va_list args)
 	num2str = itoa(num, 10);
 	for (i = 0; num2str[i] != '\0'; i++)
 	{
-		if (b->l >= 100023)
+		if (b->l >= 1023)
 		{
 			b->d[b->l] = '\0';
 			write(1, &b->d, b->l);
@@ -96,19 +93,19 @@ char *itoa(int val, int base)
 
 buffer* binary(buffer *b, va_list arg)
 {
-int n, i;
-char *num_bin;
-n = va_arg(arg, int);
+	unsigned int n, i;
+	char *num_bin;
+	n = va_arg(arg, int);
 	num_bin = itoa(n, 2);
-	for (i = 0; num_bin[i] != '\0'; i++)
-	{
-		if (b->l >= 1023)
+		for (i = 0; num_bin[i] != '\0'; i++)
 		{
+			if (b->l >= 1023)
+			{
 			write(1, &b->d, b->l);
 			b->l = 0;
+			}
+			b->d[b->l] = num_bin[i];
+			b->l++;
 		}
-		b->d[b->l] = num_bin[i];
-		b->l++;
-	}
 	return(b);
 }
