@@ -21,12 +21,9 @@ buffer *_handle(buffer *b, va_list args, char c)
 			b->d[b->l] = 'r';
 			b->l++;
 			break;
-		case '\0':
-			break;
 		default:
 			b->d[b->l] = c;
 			b->l++;
-			break;
 	}
 
 	return (b);
