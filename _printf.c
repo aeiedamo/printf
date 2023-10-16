@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
-	write(1, &b.d, b.l);
+	_putstr(b.d);
 	return(b.l);
 }
 
@@ -46,8 +46,9 @@ int _putchar(char c)
 }
 
 
-void _puts(const char *str)
+int _putstr(char *str)
 {
 	for (; *str; str++)
-		_putchar(str);
+		_putchar(*str);
+	return (1);
 }

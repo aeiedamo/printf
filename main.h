@@ -36,6 +36,7 @@ typedef struct funs
 /*directs the _printf to the proper function*/
 int _printf(const char *format, ...);
 int _putchar(char c);
+int _putstr(char *str);
 int _strlen(const char *str);
 int _strcmp(const char *s1, const char *s2);
 char *itoa(int val, int base);
