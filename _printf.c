@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
-	_putstr(b.d);
+	write(1, b.d, b.l);
 	return(b.l);
 }
 
@@ -43,12 +43,4 @@ int _printf(const char *format, ...)
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
-}
-
-
-int _putstr(char *str)
-{
-	for (; *str; str++)
-		_putchar(*str);
-	return (1);
 }
