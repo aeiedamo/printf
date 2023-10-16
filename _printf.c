@@ -9,7 +9,6 @@ int _printf(const char *format, ...)
 {
 	char *empty = "", *perc = "%";
 	buffer b;
-	int i;
 	va_list args;
 
 	if (!format || format == NULL || format == empty || format == perc)
