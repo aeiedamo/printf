@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 				b.l = 0;
 
 			}
-		b.d[b.l++] = format[i];
+			b.d[b.l++] = format[i];
 		}
 		else
 		{

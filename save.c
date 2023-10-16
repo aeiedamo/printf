@@ -55,7 +55,7 @@ buffer* saveint(buffer *b, va_list args)
 	num2str = itoa(num, 10);
 	for (i = 0; num2str[i] != '\0'; i++)
 	{
-		if (b->l >= 1023)
+		if (b->l >= 100023)
 		{
 			b->d[b->l] = '\0';
 			write(1, &b->d, b->l);
