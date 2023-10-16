@@ -20,11 +20,13 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			if (b.l >= 1023)
+			if (b.l >= 10023)
 			{
 				count += b.l;
+				b.d[b.l] = '\0';
 				write(1, &b.d, b.l);
 				b.l = 0;
+
 			}
 		b.d[b.l++] = format[i];
 		}
@@ -37,6 +39,7 @@ int _printf(const char *format, ...)
 	va_end(args);
 	if (b.l > 0)
 	{
+		b.d[b.l] ='\0';
 		count += b.l;
 		write(1, &b.d, b.l);
 		b.l = 0;
