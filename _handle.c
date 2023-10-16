@@ -5,7 +5,7 @@ buffer* _handle(buffer *b, va_list args, char c)
 	switch (c)
 	{
 		case ('c'):
-			c = va_arg(args, int);
+			c = (char) va_arg(args, int);
 			b->d[b->l++] = c;
 			break;
 		case ('s'):
