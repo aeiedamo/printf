@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	buffer b;
-	int i;
+	int i, count = 0;
 	va_list args;
 
 	if (!format || (format[0] == 10 && format[1] == 0))
@@ -23,13 +23,24 @@ int _printf(const char *format, ...)
 			b.l++;
 		}
 		else
+		{	
+		if (b.l > 0)
 		{
-			i++;
-			_handle(&b, args, format[i]);
+		count += b.l;
+		write(1, &b.d, b.l);
+		b.l = 0;
+		}
+		i++;
+		_handle(&b, args, format[i]);
+
 		}
 	}
 
 	va_end(args);
+	if (b.l > 0)
+	{
 	write(1, &b.d, b.l);
-	return (b.l);
+	count += b.l;
+	}
+	return (count);
 }
