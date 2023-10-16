@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 {
 	char *empty = "", *perc = "%";
 	buffer b;
-	int i, count = 0;
+	int i;
 	va_list args;
 
 	if (!format || format == NULL || format == empty || format == perc)
@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
-			_handle(&b, args, format[i], &i);
+			_handle(&b, args, format[i]);
 		}
 	}
 	va_end(args);

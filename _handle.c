@@ -1,6 +1,6 @@
 #include "main.h"
 
-buffer* _handle(buffer *b, va_list args, char c, int *n)
+buffer* _handle(buffer *b, va_list args, char c)
 {
 	switch (c)
 	{
