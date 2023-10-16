@@ -6,7 +6,7 @@
 */
 int _printf(const char *format, ...)
 {
-	buffer *b = malloc(sizeof(buffer));
+	buffer b;
 	va_list args;
 	int i = 0;
 
@@ -14,15 +14,15 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start(args, format);
-	while (format[i] != '\0')
+	do
 	{
-		if (format[i] == '%')
-			_handle(b, args, format[++i]);
+		if (format[i] != '%')
+			_handle(&b, args, format[++i]);
 		else
-			b->d[b->l++] = format[i];
+			b.d[b.l++] = format[i];
 		i++;
-	}
+	} while (format[i] != '\0');
 	va_end(args);
-	write(1, b->d, b->l);
-	return (b->l);
+	write(1, b.d, b.l);
+	return (b.l);
 }
