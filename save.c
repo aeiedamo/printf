@@ -9,8 +9,7 @@
 buffer* savestring(buffer *b, va_list args)
 {
 	int i;
-	char *str;
-	str = va_arg(args, char *);
+	char *str = va_arg(args, char *);
 
 	if (str == NULL)
 		str = "(null)";

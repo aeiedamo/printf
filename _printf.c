@@ -6,12 +6,11 @@
 */
 int _printf(const char *format, ...)
 {
-	char *empty = "", *perc = "%";
 	buffer *b = malloc(sizeof(buffer));
 	va_list args;
 	int i = 0;
 
-	if (format == NULL || format == empty || format == perc)
+	if (format == NULL)
 		return (-1);
 
 	va_start(args, format);
