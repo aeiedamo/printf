@@ -36,7 +36,13 @@ int _printf(const char *format, ...)
 		{
 			char *str = va_arg(args, char *);
 
+			write(1, str, _strlen(str));
 			count += write(1, str, _strlen(str));
+		}
+		else
+		{
+			write(1, &format[i], 1);
+			count++;
 		}
 		
 	}
