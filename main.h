@@ -42,5 +42,6 @@ char *itoa(int val, int base);
 buffer* _handle(buffer *, va_list, char);
 buffer* savestring(buffer *, va_list);
 buffer* saveint(buffer *, va_list);
+buffer* binary(buffer *b, va_list arg);
 
 #endif

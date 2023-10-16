@@ -84,10 +84,21 @@ char *itoa(int val, int base)
  * Return: length of address
  */
 
-int binary(buffer *b, va_list arg)
+buffer* binary(buffer *b, va_list arg)
 {
-int num;
-int *num_bin;
-num = va_arg(arg, int);
-	num = itoa(num, 2);
+int n, i;
+char *num_bin;
+n = va_arg(arg, int);
+	num_bin = itoa(n, 2);
+	for (i = 0; num_bin[i] != '\0'; i++)
+	{
+		if (b->l >= 1023)
+		{
+			write(1, &b->d, b->l);
+			b->l = 0;
+		}
+		b->d[b->l] = num_bin[i];
+		b->l++;
+	}
+	return(b);
 }
