@@ -10,9 +10,8 @@ buffer* _handle(buffer *b, va_list args, char c)
 			break;
 		case 'c':
 			c = va_arg(args, int);
-			if (c != '\0')
-			{b->d[b->l] = c;
-			b->l++; }
+			b->d[b->l] = c;
+			b->l++; 
 			break;
 		case 's':
 		savestring(b, args);

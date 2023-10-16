@@ -9,13 +9,21 @@
  */
 int main(void)
 {
-  /* int len;
-    int len2;
-    char c = 'R';
-    char *str = "my string";
-    unsigned int ui;
-    void *addr; */
-   _printf("%b\n", 98);
-    
+_printf("css%ccs%scscscs\n", 'T', "Test");
+printf("css%ccs%scscscs", 'T', "Test");
+printf("\nseparate\n");
+
+_printf(NULL);
+
+printf("\nseparate\n");
+_printf("%c", '\0');
+printf("%c", '\0');
+printf("\nseparate\n");
+
+_printf("%");
+_printf("%K\n");
+
+
+  
     return (0);
 }
