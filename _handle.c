@@ -30,6 +30,9 @@ buffer* _handle(buffer *b, va_list args, char c, int *n)
 			b->l++;
 			break;
 		default:
+            b->d[b->l++] = '%';
+            b->d[b->l++] = c;
+            *n += 1;
 			break;
 	}
 

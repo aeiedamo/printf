@@ -21,7 +21,7 @@ buffer* savestring(buffer *b, va_list args)
 		if(b->l <= 1023)
 		{
 			b->d[b->l] = '\0';
-			write(1, &b.d, b.l);
+			write(1, &b->d, b->l);
 			b->l = 0;
 		}
 		b->d[b->l] = str[i];
