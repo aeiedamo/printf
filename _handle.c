@@ -4,36 +4,34 @@ buffer* _handle(buffer *b, va_list args, char c, int *n)
 {
 	switch (c)
 	{
-		case '%':
-			b->d[b->l] = '%';
-			b->l++;
+		case ('%'):
+			b->d[b->l++] = '%';
 			break;
-		case 'c':
+		case ('c'):
 			c = va_arg(args, int);
-			b->d[b->l] = c;
-			b->l++;
+			b->d[b->l++] = c;
 			break;
-		case 's':
-		savestring(b, args);
+		case ('s'):
+			savestring(b, args);
 			break;
 		case 'i':
-		saveint(b, args);
-		break;
+			saveint(b, args);
+			break;
 		case 'd':
-		saveint(b, args);
-		break;
+			saveint(b, args);
+			break;
 		case 'b':
-		binary(b, args);
-		break;
+			binary(b, args);
+			break;
 		case 'r':
 			b->d[b->l] = '%';
 			b->l++;
 			b->d[b->l] = 'r';
 			b->l++;
 			break;
-			default:
+		default:
 			++*n;
-				break;
+			break;
 	}
 
 	return (b);

@@ -18,7 +18,7 @@ buffer* savestring(buffer *b, va_list args)
 
 	for (i = 0; i < _strlen(str); i++, b->l++)
 	{
-		b->d[b->l] = str[i];
+		b->d[b->l++] = str[i];
 	}
 
 	return (b);
@@ -39,15 +39,17 @@ buffer* saveint(buffer *b, va_list args)
 
 	num = va_arg(args, int);
 	check_null = &num;
-	if (num < 0)
-	{
-		num = -num;
-		b->d[b->l++] = '-';
-	}
+
 	if (check_null == NULL)
 	{
     b->d[b->l++] = '0';
     return (b);
+	}
+	
+	if (num < 0 && num != 0)
+	{
+		num = -num;
+		b->d[b->l++] = '-';
 	}
 
 	num2str = itoa(num, 10);

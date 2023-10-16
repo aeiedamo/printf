@@ -14,7 +14,7 @@
  */
 typedef struct buffer
 {
-	char d[1024];
+	char d[100024];
 
 	int l;
 } buffer;
