@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _printf - main function of printf project
  * @format: all included formats;
@@ -30,6 +29,6 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 	b.d[b.l] = '\0';
-	fwrite(b.d, b.l, 1, stdout);
+	write(1, b.d, b.l);
 	return (b.l);
 }

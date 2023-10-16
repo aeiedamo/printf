@@ -11,19 +11,12 @@ buffer* savestring(buffer *b, va_list args)
 	int i;
 	char *str;
 	str = va_arg(args, char *);
-	if(str == NULL)
-	{
-		str = "(null)";
-	}
+
+	if (str == NULL)
+		return (NULL);
 
 	for (i = 0; i < _strlen(str); i++, b->l++)
 	{
-		if(b->l >= 1023)
-		{
-			b->d[b->l] = '\0';
-			write(1, &b->d, b->l);
-			b->l = 0;
-		}
 		b->d[b->l] = str[i];
 	}
 
