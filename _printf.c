@@ -19,17 +19,17 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			b.d[b.l] = format[i];
-			b.l++;
+			b.d[b.l++] = format[i];
+			if (b.l >= 1023)
+			{
+			count += b.l;
+			write(1, &b.d, b.l);
+			b.l = 0;
+			}
 		}
 		else
 		{	
-		if (b.l > 0)
-		{
-		count += b.l;
-		write(1, &b.d, b.l);
-		b.l = 0;
-		}
+
 		i++;
 		_handle(&b, args, format[i]);
 

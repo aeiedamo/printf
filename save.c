@@ -17,8 +17,10 @@ buffer *savestring(buffer *b, va_list args)
 	{
 		str = "(null)";
 	}
+
 	for (i = 0; i < _strlen(str); i++, b->l++)
-		b->d[b->l] = str[i];
+	b->d[b->l] = str[i];
+
 	return (b);
 }
 

@@ -32,6 +32,6 @@ buffer *_handle(buffer *b, va_list args, char c)
 			b->l++;
 			break;
 	}
-
+	b->d[b->l] = '\0';
 	return (b);
 }
