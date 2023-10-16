@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	int i, count = 0;
 	va_list args;
 
-	if (!format || (format[0] == 10 && format[1] == 0))
+	if (!format)
 	return (-1);
 
 	b.l = 0;
