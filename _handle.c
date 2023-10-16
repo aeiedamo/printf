@@ -18,6 +18,10 @@ buffer *_handle(buffer *b, va_list args, char c)
 		case 's':
 			savestring(b, args);
 			break;
+		case 'i':
+		case 'd':
+			saveint(b, args);
+			break;
 		case 'r':
 			b->d[b->l] = '%';
 			b->l++;
