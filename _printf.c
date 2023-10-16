@@ -29,6 +29,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
-	write(1, b.d, 1024);
+	write(1, b.d, b.l + 1);
 	return (b.l);
 }
