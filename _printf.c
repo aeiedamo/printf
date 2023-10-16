@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 		b.d[b.l++] = format[i];
 		}
 		else
-		{	
+		{
 			i++;
 		_handle(&b, args, format[i], &i);
 		}
