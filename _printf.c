@@ -33,3 +33,15 @@ int _printf(const char *format, ...)
 	write(1, &b.d, b.l);
 	return(b.l);
 }
+
+
+/**
+ * _putchar - prints a char
+ * @c: char to print
+ * Return: 1 on success, -1 if failed
+ */
+
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
