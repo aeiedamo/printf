@@ -30,6 +30,7 @@ buffer* _handle(buffer *b, va_list args, char c, int *n)
 			b->l++;
 			break;
 		default:
+		n += 0;
 			break;
 	}
 
