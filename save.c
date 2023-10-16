@@ -35,11 +35,18 @@ buffer* saveint(buffer *b, va_list args)
 {
 	int num, i;
 	char *num2str;
+	int *check_null;
 	num = va_arg(args, int);
+	check_null = &num;
 	if (num < 0)
 	{
 		num = -num;
 		b->d[b->l++] = '-';
+	}
+	if(check_null == NULL)
+	{
+		b->d[b->l++] = '0';
+		return (b);
 	}
 
 	num2str = itoa(num, 10);
@@ -50,8 +57,7 @@ buffer* saveint(buffer *b, va_list args)
 			write(1, &b->d, b->l);
 			b->l = 0;
 		}
-		b->d[b->l] = num2str[i];
-		b->l++;
+		b->d[b->l++] = num2str[i];
 	}
 
 	return (b);
@@ -68,7 +74,7 @@ buffer* saveint(buffer *b, va_list args)
 char *itoa(int val, int base)
 {
 	static char buf[64] = {0};
-	int i = 30;
+	int i = 62;
 
 	for (; val && i ; --i, val /= base)
 		buf[i] = "0123456789abcdef"[val % base];

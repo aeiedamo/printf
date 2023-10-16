@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			if (b.l >= 10023)
+			if (b.l >= 1023)
 			{
 				count += b.l;
 				b.d[b.l] = '\0';

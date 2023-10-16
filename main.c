@@ -16,10 +16,10 @@ int main(void)
     int len2 = printf("The value of num is: %d\n", num);
 
     int len3 = _printf("The value of num2 is: %i\n", num2);
-    int len4 = printf("The value of num2 is: %i\n", num2);
+    int len4 = _printf("The value of num2 is: %i\n", num2);
 
-    printf("Lengths for num (custom printf): [%d, %d]\n", len, len2);
-    printf("Lengths for num2 (custom printf): [%d, %d]\n", len3, len4);
-  
+    _printf("Lengths for num (custom printf): [%d, %d]\n", len, len2);
+    _printf("Lengths for num2 (custom printf): [%d, %d]\n", len3, len4);
+    _printf("%d", NULL);
     return (0);
 }
