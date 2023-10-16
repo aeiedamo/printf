@@ -20,6 +20,6 @@ int main(void)
 
     _printf("Lengths for num (custom printf): [%d, %d]\n", len, len2);
     _printf("Lengths for num2 (custom printf): [%d, %d]\n", len3, len4);
-    _printf("%d", NULL);
+    _printf("%K");
     return (0);
 }
