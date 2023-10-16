@@ -36,8 +36,8 @@ buffer* saveint(buffer *b, va_list args)
 	int num, i;
 	char *num2str;
 	int *check_null;
+
 	num = va_arg(args, int);
-	check_null = &num;
 	if (num < 0)
 	{
 		num = -num;
@@ -54,6 +54,7 @@ buffer* saveint(buffer *b, va_list args)
 	{
 		if (b->l >= 1023)
 		{
+			b->d[b->l] = '\0';
 			write(1, &b->d, b->l);
 			b->l = 0;
 		}
