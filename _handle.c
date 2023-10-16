@@ -2,8 +2,6 @@
 
 buffer *_handle(buffer *b, va_list args, char c)
 {
-	char ch;
-
 	switch (c)
 	{
 		case 0:
@@ -26,9 +24,6 @@ buffer *_handle(buffer *b, va_list args, char c)
 			b->d[b->l] = 'r';
 			b->l++;
 			break;
-		default:
-			b->d[b->l] = c;
-			b->l++;
 	}
 
 	return (b);
