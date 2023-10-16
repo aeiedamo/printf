@@ -11,21 +11,21 @@ int _printf(const char *format, ...)
 	int i;
 	va_list args;
 
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL)
 		return (-1);
 	b.l = 0;
 	va_start(args, format);
-	for (i = 0; format[i] != '\0'; i++)
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
-		{
-			i++;
-			_handle(&b, args, format[i]);
-		}
-		else
+		if (format[i] != '%')
 		{
 			b.d[b.l] = format[i];
 			b.l++;
+		}
+		else
+		{
+			i++;
+			_handle(&b, args, format[i]);
 		}
 	}
 	va_end(args);

@@ -41,6 +41,6 @@ int main(void)
     _printf("Unknown:[%r]\n");
     /*printf("Unknown:[%r]\n");*/
     _printf("empty string");
-    _printf("");
+    _printf("%");
     return (0);
 }
