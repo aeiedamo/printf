@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format != '%')
 		{
-			b.d[b.l++] = *format;
+			write(1, format, 1);
 		}
 		else
 		{

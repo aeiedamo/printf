@@ -21,10 +21,8 @@ buffer* _handle(buffer *b, va_list args, char c)
 			binary(b, args);
 			break;
 		case ('r'):
-			b->d[b->l] = '%';
-			b->l++;
-			b->d[b->l] = 'r';
-			b->l++;
+			b->d[b->l++] = '%';
+			b->d[b->l++] = 'r';
 			break;
 		case ('%'):
 		default:
