@@ -8,14 +8,12 @@
 */
 buffer* savestring(buffer *b, va_list args)
 {
-	int i;
 	char *str = va_arg(args, char *);
 
 	if (str == NULL)
 		str = "(null)";
 
-	for (i = 0; i < _strlen(str); i++)
-		b->d[b->l++] = str[i];
+	puts(str);
 
 	return (b);
 }
@@ -54,7 +52,6 @@ buffer* saveint(buffer *b, va_list args)
 	return (b);
 }
 
-
 /**
  * itoa - converts int to string
  * @val: number to convert
@@ -73,7 +70,6 @@ char *itoa(int val, int base)
 	return (&buf[i + 1]);
 
 }
-
 
  /**binnary - save address
  * @b: buffer

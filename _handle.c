@@ -10,6 +10,10 @@ buffer* _handle(buffer *b, va_list args, char c)
 		case 's':
 			savestring(b, args);
 			break;
+		case 'i':
+		case 'd':
+			saveint(b, args);
+			break;
 		default:
 			b->d[b->l++] = c;
 			break;
