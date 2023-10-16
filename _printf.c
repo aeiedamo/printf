@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format != '%')
 		{
-			write(1, format, 1);
+			b.d[b.l++] = *format;
 		}
 		else
 		{
@@ -29,6 +29,7 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
+	b.d[b.l] = '\0';
 	write(1, b.d, b.l);
 	return (b.l);
 }
