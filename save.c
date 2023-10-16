@@ -13,6 +13,10 @@ buffer *savestring(buffer *b, va_list args)
 	char *str;
 
 	str = va_arg(args, char *);
+	if(str == NULL)
+	{
+		str = "(null)";
+	}
 	for (i = 0; i < _strlen(str); i++, b->l++)
 		b->d[b->l] = str[i];
 	return (b);

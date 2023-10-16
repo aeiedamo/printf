@@ -19,6 +19,8 @@ buffer *_handle(buffer *b, va_list args, char c)
 			savestring(b, args);
 			break;
 		case 'i':
+		saveint(b, args);
+		break;
 		case 'd':
 			saveint(b, args);
 			break;

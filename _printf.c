@@ -28,6 +28,7 @@ int _printf(const char *format, ...)
 			_handle(&b, args, format[i]);
 		}
 	}
+
 	va_end(args);
 	write(1, &b.d, b.l);
 	return (b.l);
