@@ -12,7 +12,8 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	if (!format || (format[0] == 10 && format[1] == 0))
-		return (-1);
+	return (-1);
+
 	b.l = 0;
 	va_start(args, format);
 	for (i = 0; format[i] != '\0'; i++)
@@ -29,13 +30,10 @@ int _printf(const char *format, ...)
 		}
 		else
 		{	
-
-		i++;
-		_handle(&b, args, format[i]);
-
+			i++;
+			count += _handle(&b, args, format[i]);
 		}
 	}
-
 	va_end(args);
 	if (b.l > 0)
 	{

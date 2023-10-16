@@ -1,11 +1,10 @@
 #include "main.h"
 
-buffer *_handle(buffer *b, va_list args, char c)
+int _handle(buffer *b, va_list args, char c)
 {
+	int count;
 	switch (c)
 	{
-		case 0:
-			break;
 		case '%':
 			b->d[b->l] = '%';
 			b->l++;
@@ -17,14 +16,17 @@ buffer *_handle(buffer *b, va_list args, char c)
 			b->l++; }
 			break;
 		case 's':
-			savestring(b, args);
+		count = savestring(b, args);
 			break;
 		case 'i':
 		saveint(b, args);
 		break;
 		case 'd':
-			saveint(b, args);
+		count = saveint(b, args);
 			break;
+		case 'p':
+		/* count = saveadd(b, args); */
+		break;
 		case 'r':
 			b->d[b->l] = '%';
 			b->l++;
@@ -33,5 +35,5 @@ buffer *_handle(buffer *b, va_list args, char c)
 			break;
 	}
 	b->d[b->l] = '\0';
-	return (b);
+	return (count);
 }
