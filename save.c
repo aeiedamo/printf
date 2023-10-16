@@ -18,7 +18,7 @@ buffer* savestring(buffer *b, va_list args)
 
 	for (i = 0; i < _strlen(str); i++, b->l++)
 	{
-		if(b->l <= 1023)
+		if(b->l >= 1023)
 		{
 			b->d[b->l] = '\0';
 			write(1, &b->d, b->l);
@@ -85,7 +85,7 @@ char *itoa(int val, int base)
 }
 
 
- /**binnary - save addesss
+ /**binnary - save address
  * @b: buffer
  * @arg: argument contain the address
  * Return: length of address
@@ -95,7 +95,7 @@ buffer* binary(buffer *b, va_list arg)
 {
 	unsigned int n, i;
 	char *num_bin;
-	n = va_arg(arg, int);
+	n = va_arg(arg, unsigned int);
 	num_bin = itoa(n, 2);
 		for (i = 0; num_bin[i] != '\0'; i++)
 		{

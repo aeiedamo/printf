@@ -28,8 +28,8 @@ printf("css%ccs%scscscs\n\n", 'T', "Test");
 _printf(NULL);
 _printf("%c", '\0');
 printf("%c", '\0');
-_printf("%");
-_printf("%K\n");
+_printf("%\n");
+_printf("%K there is\n");
 
     return (0);
 }
