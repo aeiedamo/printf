@@ -7,12 +7,13 @@
 */
 int _printf(const char *format, ...)
 {
+	char *empty = "", *perc = "%";
 	buffer b;
 	int i, count = 0;
 	va_list args;
 
-	if (!format && !*format)
-	return (-1);
+	if (!format || format == NULL || format == empty || format == perc)
+		return (-1);
 
 	b.l = 0;
 	va_start(args, format);
