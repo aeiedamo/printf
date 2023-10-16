@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			i++;
+			format++;
 			_handle(&b, args, *format);
 		}
 	}
