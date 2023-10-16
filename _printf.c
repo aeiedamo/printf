@@ -17,16 +17,16 @@ int _printf(const char *format, ...)
 
 	b.l = 0;
 	va_start(args, format);
-	for (i = 0; format[i] != '\0'; i++)
+	for (; *format; format++)
 	{
-		if (format[i] != '%')
+		if (*format != '%')
 		{
-			b.d[b.l++] = format[i];
+			b.d[b.l++] = *format;
 		}
 		else
 		{
 			i++;
-			_handle(&b, args, format[i]);
+			_handle(&b, args, *format);
 		}
 	}
 	va_end(args);
