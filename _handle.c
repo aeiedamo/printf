@@ -23,8 +23,8 @@ buffer* _handle(buffer *b, va_list args, char c)
 		case 'd':
 		saveint(b, args);
 		break;
-		case 'p':
-		/* count = saveadd(b, args); */
+		case 'b':
+		binary(b, args);
 		break;
 		case 'r':
 			b->d[b->l] = '%';
