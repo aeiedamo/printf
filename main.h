@@ -37,6 +37,7 @@ typedef struct funs
 int _printf(const char *format, ...);
 int _strlen(const char *str);
 int _strcmp(const char *s1, const char *s2);
+int _putchar(char c);
 char *itoa(int val, int base);
 buffer* _handle(buffer *, va_list, char);
 buffer* savestring(buffer *, va_list);
