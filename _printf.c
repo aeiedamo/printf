@@ -32,6 +32,7 @@ int _printf(const char *format, ...)
 		{	
 			i++;
 			_handle(&b, args, format[i]);
+			++i;
 		}
 	}
 	va_end(args);
