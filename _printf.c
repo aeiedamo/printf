@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	do
 	{
-		if (format[i] != '%')
+		if (format[i] == '%')
 			_handle(&b, args, format[++i]);
 		else
 			b.d[b.l++] = format[i];
