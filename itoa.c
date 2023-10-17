@@ -45,6 +45,7 @@ void itoa(int n, char *s, int base, char c)
 	} while((n /= base) > 0);
 	if (sign < 0)
 		s[i++] = '-';
+	s[i] = '\0';
         reverse(s);
 }
 
