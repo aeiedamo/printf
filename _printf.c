@@ -10,8 +10,9 @@ int _printf(const char *format, ...)
 {
 	int i, count = 0;
 	va_list args;
+	char *perc = "%";
 
-	if (format == NULL)
+	if (format == NULL || format == perc)
 		return (-1);
 
 	va_start(args, format);
