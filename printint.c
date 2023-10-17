@@ -18,12 +18,15 @@ int printint(va_list args)
 	{
 		num2str[i++] = num % 10 + '0';
 	} while ((num /= 10) > 0);
+
 	if (sign < 0)
 		num2str[i++] = '-';
+	
 	for (; i >= 0; --i)
 		_putchar(num2str[i]);
+	num = _strlen(num2str);
 	free(num2str);
-	return (_strlen(num2str));
+	return (num);
 }
 /**
  * printbin - function to print numbers in binary format.
