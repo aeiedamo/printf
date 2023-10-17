@@ -11,6 +11,8 @@ int printint(va_list args)
 	char *num2str = malloc(sizeof(char));
 
 	num = va_arg(args, int);
+	if (num == 0)
+		return (_putchar('0'));
 	itoa(num, num2str, 10, 'd');
 	for (i = 0; num2str[i] != '\0'; i++)
 		_putchar(num2str[i]);
