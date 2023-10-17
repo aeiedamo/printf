@@ -16,7 +16,7 @@ int printint(va_list args)
 		return (_putchar('0'));
 	}
 
-	numstr = itoa(num, 10);
+	numstr = itoao(num, 10, 0);
 
 	if (num < 0 && num != 0)
 	{
