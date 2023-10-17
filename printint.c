@@ -7,16 +7,21 @@
  */
 int printint(va_list args)
 {
-	int i, num;
+	int num, i = 0, sign;
 	char *num2str = malloc(sizeof(char));
 
 	num = va_arg(args, int);
-	if (num == 0)
-		return (_putchar('0'));
-	itoa(num, num2str, 10, 'd');
-	for (i = 0; num2str[i] != '\0'; i++)
-		_putchar(num2str[i]);
+	if ((sign = num) < 0)
+		num *= -1;
 
+	do
+	{
+		num2str[i++] = num % 10 + '0';
+	} while ((num /= 10) > 0);
+	if (sign < 0)
+		num2str[i++] = '-';
+	for (; i >= 0; --i)
+		_putchar(num2str[i]);
 	return (_strlen(num2str));
 }
 /**
