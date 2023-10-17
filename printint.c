@@ -79,13 +79,16 @@ int printunsign(va_list arg, int base)
 	switch (base)
 	{
 	case (10):
-	numstr = itoao(num, 10, 1);
+	numstr = itoao(num, 10, 1, 0);
 	break;
 	case (8):
-	numstr = itoao(num, 8, 1);
+	numstr = itoao(num, 8, 1, 0);
 	break;
 	case(16):
-	numstr = itoao(num, 16, 1);
+	numstr = itoao(num, 16, 1, 0);
+	break;
+	case(016):
+	numstr = itoao(num, 16, 1, 1);
 	break;
 	default:
 	break;

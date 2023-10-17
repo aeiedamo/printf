@@ -49,7 +49,7 @@ char *itoa_binary(unsigned int val)
  *@is_unsigned: check if the number unsigned type or not
  * Return: buffer contain the string.
 */
-char *itoao(int val, int base, int is_unsigned)
+char *itoao(int val, int base, int is_unsigned, int upper)
 {
 	static char buf[64] = {0};
 	char *digits;
@@ -67,7 +67,9 @@ char *itoao(int val, int base, int is_unsigned)
 		buf[i] = '-';
 		i--;
 	}
-
+	if (upper > 0)
+	digits = "0123456789ABCDEF";
+	else
 	digits = "0123456789abcdef";
 	if (base == 8)
 	{

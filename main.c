@@ -10,7 +10,7 @@
 int main(void)
 {
 
-    _printf("%o %x %u\n", 16, 16 , 16);
-    printf("%o %x %u\n", 16, 16 , 16);
+    _printf("%o %x %u %X\n", 'f', 783 , 783, 783);
+  
     return (0);
 }
