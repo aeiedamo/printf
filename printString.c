@@ -22,9 +22,13 @@ int printString(va_list args)
 		{
 			_putchar('\\');
 			_putchar('x');
+			len += 2;
 			if(str[count] < 16)
+			{
 				_putchar('0');
-			_putchar(str[count]);
+				len++;
+			}
+			_printf("%X", str[count]);
 			len++;
 		}
 		else
