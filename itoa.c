@@ -20,33 +20,17 @@ void reverse(char *s)
 
 /**
  * itoa - convert numbers to string.
- * @n: number.
- * @s: pointer to string
+ * @val: number.
  * @base: base.
- * @c: identifier used
 */
-void itoa(int n, char *s, int base, char c)
+char *itoa(int val, int base)
 {
-	int i, sign;
-	char *digits;
+	static char buf[32] = {0};
+	int i = 30;
 	
-	if (c == 'X')
-		digits = "0123456789ABCDEF";
-	else
-		digits = "0123456789abcdef";
-	
-	if ((sign = n) < 0)
-		n = -n;
-	
-	i = 0;
-	do
-	{
-		s[i++] = digits[n % base];
-	} while((n /= base) > 0);
-	if (sign < 0)
-		s[i++] = '-';
-	s[i] = '\0';
-        reverse(s);
+	for (; val && i; --i, val /= base)
+		buf[i] = "0123456789abcdef"[val % base];
+	return (&buf[i + 1]);
 }
 
 /**

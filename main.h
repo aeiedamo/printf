@@ -21,5 +21,5 @@ void printrev(char *buffer);
 int printbin(va_list);
 
 void reverse(char *s);
-void itoa(int n, char *s, int base, char c);
+char *itoa(int val, int base);
 #endif
