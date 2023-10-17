@@ -8,12 +8,11 @@
 
 int printint(va_list args)
 {
-	int i = 0, len, num;
+	int i = 0, len = 0, num;
 	char *numstr;
 
 	num = va_arg(args, int);
 	numstr = itoa(num, 10);
-	len = _strlen(numstr);
 	if (num < 0)
 	{
 		_putchar('-');
