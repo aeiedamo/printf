@@ -1,13 +1,13 @@
 #include "main.h"
 /**
- * printrev - print buffer 
- * @buffer: buffer contains numbers as string.
+ * printrev - 
+ * @buffer:
  * 
 */
 void printrev(char *buffer)
 {
 	int i = _strlen(buffer);
-	for (; i > 0; --i)
+	for (; i >= 0; --i)
 	_putchar(buffer[i]);
 }
 
@@ -18,32 +18,25 @@ void printrev(char *buffer)
  */
 int printint(va_list args)
 {
-	int num, num2, i = 0;
-	char *buffer;
+	int i, len = 0, num;
+	char *numstr;
 	num = va_arg(args, int);
-	
 	if (num == 0)
-		return (_putchar('0'));
-	buffer = malloc(num);
-	num2 = num;
-	if (num < 0)
-		num *= -1;
-	while(num > 0)
 	{
-		buffer[i++] = '0' + num % 10;
-		num /= 10;
+		return (_putchar('0'));
 	}
-	if (num2 < 0 && num2 != 0)
-		buffer[i] = '-';
-	printrev(buffer);
-	free(buffer);
-	return (i);
+	numstr = itoa(num, 10);
+	if (num < 0)
+	{
+		_putchar('-');
+		num *= -1;
+		len++;
+	}
+	for (i = 0; numstr[i] != '\0'; i++, len++)
+		_putchar(numstr[i]);
+	return (len);
 }
-/**
- * printbin - function to print numbers in binary format 
- * @arg: argument
- * Return: number of charecter printed.
-*/
+
 int printbin (va_list arg)
 {
 	unsigned int num;

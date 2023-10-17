@@ -1,11 +1,11 @@
 #include "main.h"
-/*
-/**
- * itoa - converts integer to string
+
+
+ /** itoa - converts integer to string
  * @val: integer value
  * @base: base system to use
  * Return: integer string
- 
+ */
 char *itoa(int val, int base)
 {
 	static char buf[32] = {0};
@@ -17,7 +17,7 @@ char *itoa(int val, int base)
 		buf[i] = "0123456789abcdef"[val % base];
 	return (&buf[i + 1]);
 }
-*/
+
 /**
  * itoa_binary - con
  * 
