@@ -1,14 +1,9 @@
-#include <limits.h>
-#include <stdio.h>
 #include "main.h"
 
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
 int main(void)
 {
-	_printf("%c%%", 's');
-	return (0);
+	char c = '!';
+	char *str = "Hello, " "World";
+	_printf("%%%s%c", str, c);
+	return 0;
 }

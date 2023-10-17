@@ -1,23 +1,27 @@
 #include "main.h"
 
-buffer* _handle(buffer *b, va_list args, char c)
+/**
+ * _handle - to run the proper function to print
+ * @c: char to determine the proper function
+ * @args: argument
+ * Return: number of chars printed
+ */
+
+int _handle(char c, va_list args)
 {
+	int count = 0;
+
 	switch (c)
 	{
 		case 'c':
-			b->d[b->l++] = (char) va_arg(args, int);
+			count += printchar(args);
 			break;
 		case 's':
-			savestring(b, args);
-			break;
-		case 'i':
-		case 'd':
-			saveint(b, args);
+			count += printstring(args);
 			break;
 		default:
-			b->d[b->l++] = c;
-			break;
+			count += _putchar(c);
 	}
 
-	return (b);
+	return (count);
 }

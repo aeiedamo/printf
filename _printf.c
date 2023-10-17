@@ -1,56 +1,26 @@
 #include "main.h"
-#include <stdio.h>
-
-#define MULTI_LINE_STRING(a) #a
 
 /**
- * _printf - main function of printf project
- * @format: all included formats;
- * Return: length of format.
-*/
+ * _printf - a function that produces output according to a format.
+ * @format: format string to be processed
+ * Return: number of chars printed.
+ */
+
 int _printf(const char *format, ...)
 {
+	int i, count = 0;
 	va_list args;
-	int i;
-	int count = 0;
-
-
-	if (format == NULL)
-		return (-1);
 
 	va_start(args, format);
 
-	for (i = 0; i < _strlen(format); i++)
-        {
-                if (format[i] == '%')
-		{
-			i++;
-			if (format[i] == 'c')
-			{
-				char c = va_arg(args, int);
-
-				putchar(c);
-				count++;
-			}
-			else if (format[i] == 's')
-			{
-				char *str = (va_arg(args, char *));
-
-				puts(str);
-				count += strlen(str);
-			}
-			else
-				 putchar(format[i]);
-		}
-		else
-			putchar(format[i]);
-        }
-	/*for (i = 0; i < _strlen(format); i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
-			_handle(&b, args, format[++i]);
+		if (format[i] != '%')
+			count += _putchar(format[i]);
 		else
-			b.d[b.l++] = format[i];
-	}*/
-	return (0);
+			count += _handle(format[++i], args);
+	}
+
+	va_end(args);
+	return (count);
 }
