@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	char *perc = "%";
 
-	if (format == NULL || format == perc)
+	if (format == NULL || format == perc || format[0] == '\0')
 		return (-1);
 
 	va_start(args, format);
