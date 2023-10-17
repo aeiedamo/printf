@@ -18,5 +18,5 @@ int printstring(va_list args)
 	for (count = 0; str[count] != '\0'; count++)
 		_putchar(str[count]);
 
-	return (count);
+	return (count - 1);
 }
