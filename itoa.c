@@ -2,9 +2,9 @@
 
  /**
   *itoa - converts integer to string.
-  * @val: integer value
-  * @base: base system to use
-  * Return: integer string
+  *@val: integer value.
+  *@base: base system to use.
+  *Return: integer string.
   */
 char *itoa(int val, int base)
 {
