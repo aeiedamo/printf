@@ -8,15 +8,16 @@
 
 int printstring(va_list args)
 {
-	int count;
+	int count, len;
 	char *str;
 
 	str = va_arg(args, char *);
 	if (str == NULL)
 		str = "(null)";
 
-	for (count = 0; str[count] != '\0'; count++)
+	len = _strlen(str);
+	for (count = 0; count < len; count++)
 		_putchar(str[count]);
 
-	return (count - 1);
+	return (len);
 }

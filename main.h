@@ -7,6 +7,7 @@
 
 int _printf(const char *, ...);
 int _putchar(char);
+int _strlen(const char *);
 int _handle(char, va_list);
 int printchar(va_list);
 int printstring(va_list);
