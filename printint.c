@@ -1,12 +1,12 @@
 #include "main.h"
 /**
- * printrev - 
- * @buffer:
- * 
+ * printrev - reverse buffer then print it
+ * @buffer: buffer
 */
 void printrev(char *buffer)
 {
 	int i = _strlen(buffer);
+
 	for (; i >= 0; --i)
 	_putchar(buffer[i]);
 }
@@ -37,17 +37,17 @@ int printint(va_list args)
 	return (len);
 }
 /**
- * printbin - function to print numbers in binary format 
- * @arg: argument
- * Return: number of charecter printed
+ * printbin - function to print numbers in binary format.
+ * @arg: argument.
+ * Return: number of charecter printed.
  */
-int printbin (va_list arg)
+int printbin(va_list arg)
 {
 	unsigned int num;
 	char *numstr;
 	int len = 0, i;
-	num = va_arg(arg, unsigned int);
 
+	num = va_arg(arg, unsigned int);
 	if (num == 0)
 		return (_putchar('0'));
 
@@ -63,8 +63,8 @@ int printunsign(va_list arg)
 	unsigned int num;
 	char *numstr;
 	int i, len = 0;
-	num = va_arg(arg, unsigned int);
 
+	num = va_arg(arg, unsigned int);
 	if (num == 0)
 	{
 		return (_putchar('0'));
@@ -73,6 +73,5 @@ int printunsign(va_list arg)
 
 	for (i = 0; numstr[i] != '\0'; i++, len++)
 		_putchar(numstr[i]);
-	
 	return (len);
 }

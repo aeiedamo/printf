@@ -47,13 +47,13 @@ char *itoa_binary(unsigned int val)
 char *itoao(int val, int base, int is_unsigned)
 {
 	static char buf[64] = {0};
-	char * digits;
+	char *digits;
 	int i = 62;
 
 	if (val == 0)
 	{
 		buf[i] = '0';
-		return &buf[i];
+		return (&buf[i]);
 	}
 
 	if (!is_unsigned && val < 0)

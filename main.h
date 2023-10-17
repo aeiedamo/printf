@@ -20,5 +20,5 @@ char *itoa(int val, int base);
 void printrev(char *buffer);
 int is_it_base2(int num);
 int is_it_base8(int num);
-int printbin (va_list);
+int printbin(va_list);
 #endif
