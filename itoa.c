@@ -1,21 +1,51 @@
 #include "main.h"
 
 /**
- * itoa - convert numbers to string.
- * @val: number.
- * @base: base.
- * Return: pointer to the string.
-*/
-char *itoa(int val, int base)
-{
-	static char buf[32] = {0};
-	int i = 30;
+ * reverse - function to reverse a string
+ * @s: pointer to string
+ */
 
-	if (val < 0)
-		val *= -1;
-	for (; val && i ; --i, val /= base)
-		buf[i] = "0123456789abcdef"[val % base];
-	return (&buf[i + 1]);
+void reverse(char *s)
+{
+	int c, i, j;
+
+	for (i = 0, j = _strlen(s) - 1; i < j; i++, j--)
+	{
+		c = s[i];
+		s[i] = s[j];
+		s[j] = c;
+	}
+}
+
+
+/**
+ * itoa - convert numbers to string.
+ * @n: number.
+ * @s: pointer to string
+ * @base: base.
+ * @c: identifier used
+*/
+void itoa(int n, char *s, int base, char c)
+{
+	int i, sign;
+	char *digits;
+	
+	if (c == 'X')
+		digits = "0123456789ABCDEF";
+	else
+		digits = "0123456789abcdef";
+	
+	if ((sign = n) < 0)
+		n = -n;
+	
+	i = 0;
+	do
+	{
+		s[i++] = digits[n % base];
+	} while((n /= base) > 0);
+	if (sign < 0)
+		s[i++] = '-';
+        reverse(s);
 }
 
 /**

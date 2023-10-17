@@ -1,15 +1,4 @@
 #include "main.h"
-/**
- * printrev - reverse buffer then print it
- * @buffer: buffer
-*/
-void printrev(char *buffer)
-{
-	int i = _strlen(buffer);
-
-	for (; i >= 0; --i)
-	_putchar(buffer[i]);
-}
 
 /**
  * printint - function to print an integer
@@ -18,24 +7,17 @@ void printrev(char *buffer)
  */
 int printint(va_list args)
 {
-	int i, len = 0, num;
-	char *numstr;
+	int i = 0, num;
+	char *num2str = malloc(sizeof(char));
 
 	num = va_arg(args, int);
-	if (num == 0)
-	{
-		return (_putchar('0'));
-	}
-	numstr = itoa(num, 10);
-	if (num < 0)
-	{
-		_putchar('-');
-		num *= -1;
-		len++;
-	}
-	for (i = 0; numstr[i] != '\0'; i++, len++)
-		_putchar(numstr[i]);
-	return (len);
+	itoa(num, num2str, 10, 'd');
+	num = strlen(num2str);
+	for (; i < num; i++)
+		_putchar(num2str[i]);
+	free(num2str);
+
+	return (num);
 }
 /**
  * printbin - function to print numbers in binary format.

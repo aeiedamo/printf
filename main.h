@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <string.h>
 
 int _printf(const char *, ...);
 int _putchar(char);
@@ -16,7 +17,9 @@ int printint(va_list);
 char *itoa_binary(unsigned int);
 char *itoao(int, int, int, int);
 int printunsign(va_list, int);
-char *itoa(int, int);
 void printrev(char *buffer);
 int printbin(va_list);
+
+void reverse(char *s);
+void itoa(int n, char *s, int base, char c);
 #endif
