@@ -12,5 +12,5 @@ int _handle(char, va_list);
 int printchar(va_list);
 int printstring(va_list);
 int printint(va_list);
-char* itoa(int, int);
+char *itoa(int, int);
 #endif
