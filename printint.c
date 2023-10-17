@@ -7,7 +7,7 @@
 void printrev(char *buffer)
 {
 	int i = _strlen(buffer);
-	for (; i >= 0; --i)
+	for (; i > 0; --i)
 	_putchar(buffer[i]);
 }
 
@@ -19,21 +19,22 @@ void printrev(char *buffer)
 int printint(va_list args)
 {
 	int num, num2, i = 0;
-	char *buffer = malloc(sizeof(char *));
+	char *buffer;
 	num = va_arg(args, int);
-
+	
 	if (num == 0)
 		return (_putchar('0'));
+	buffer = malloc(num);
 	num2 = num;
 	if (num < 0)
 		num *= -1;
-	while(num)
+	while(num > 0)
 	{
 		buffer[i++] = '0' + num % 10;
 		num /= 10;
 	}
-	if (num2 < 0)
-		buffer[i++] = '-';
+	if (num2 < 0 && num2 != 0)
+		buffer[i] = '-';
 	printrev(buffer);
 	free(buffer);
 	return (i);
