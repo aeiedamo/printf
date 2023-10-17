@@ -18,13 +18,8 @@ int printint(va_list args)
 	{
 		_putchar('-');
 		len++;
-		for (i = 0; i < len - 1; i++)
-                	_putchar(numstr[i]);
 	}
-	else
-	{
-		for (i = 0; i < len; i++)
-			_putchar(numstr[i]);
-	}
+	for (i = 0; numstr[i] != '\0'; i++, len++)
+		_putchar(numstr[i]);
 	return (len);
 }
