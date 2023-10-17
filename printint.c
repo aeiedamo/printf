@@ -64,7 +64,7 @@ int printbin(va_list arg)
  * @arg: argument.
  * Return: number of charecter printed.
 */
-int printunsign(va_list arg)
+int printunsign(va_list arg, int base)
 {
 	unsigned int num;
 	char *numstr;
@@ -75,7 +75,21 @@ int printunsign(va_list arg)
 	{
 		return (_putchar('0'));
 	}
+
+	switch (base)
+	{
+	case (10):
 	numstr = itoao(num, 10, 1);
+	break;
+	case (8):
+	numstr = itoao(num, 8, 1);
+	break;
+	case(16):
+	numstr = itoao(num, 16, 1);
+	break;
+	default:
+	break;
+	}
 
 	for (i = 0; numstr[i] != '\0'; i++, len++)
 		_putchar(numstr[i]);

@@ -10,6 +10,6 @@
 int main(void)
 {
 
-    _printf("%b \n", 16);
+    _printf("%o \n", 16);
     return (0);
 }

@@ -52,7 +52,13 @@ int more_handle(char c, va_list args)
 			count += printbin(args);
 			break;
 		case 'u':
-			count += printunsign(args);
+			count += printunsign(args, 10);
+			break;
+		case 'o':
+			count += printunsign(args, 8);
+			break;
+		case 'x':
+			count += printunsign(args, 16);
 			break;
 		default:
 			count += _putchar('%');

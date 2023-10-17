@@ -15,7 +15,7 @@ int printstring(va_list);
 int printint(va_list);
 char *itoa_binary(unsigned int val);
 char *itoao(int val, int base, int is_unsigned);
-int printunsign(va_list);
+int printunsign(va_list, int);
 char *itoa(int val, int base);
 void printrev(char *buffer);
 int is_it_base2(int num);
