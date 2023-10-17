@@ -20,16 +20,13 @@ int printString(va_list args)
 	{
 		if (str[count] < 32 || str[count] >= 127)
 		{
-			_putchar('\\');
-			_putchar('x');
-			len += 2;
-			if(str[count] < 16)
-			{
+			_printf("\\x");
+			if (str[count] < 16)
 				_putchar('0');
-				len++;
-			}
-			_printf("%X", str[count]);
-			len++;
+			else
+				_putchar("123456789ABCDEF"[(str[count] / 16) % 16]);
+			_putchar("0123456789ABCDEF"[str[count] % 16]);
+			len += 4;
 		}
 		else
 		{
