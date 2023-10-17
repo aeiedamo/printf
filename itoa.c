@@ -22,7 +22,7 @@ char *itoa(int val, int base)
 /**
  *itoa_binary - convert number to base 2 and make string from that number.
  *@val: number to be converted.
- * return: buffer contain the string.
+ * Return: buffer contain the string.
 */
 char *itoa_binary(unsigned int val)
 {
@@ -43,7 +43,13 @@ char *itoa_binary(unsigned int val)
 
 	return (&buf[i + 1]);
 }
-
+/**
+ *itoao - convert number to any base chosen and make string from that number.
+ *@val: number to be converted.
+ *@base: base to convert to.
+ *@is_unsigned: check if the number unsigned type or not
+ * Return: buffer contain the string.
+*/
 char *itoao(int val, int base, int is_unsigned)
 {
 	static char buf[64] = {0};

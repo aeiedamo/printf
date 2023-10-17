@@ -20,6 +20,7 @@ int printint(va_list args)
 {
 	int i, len = 0, num;
 	char *numstr;
+
 	num = va_arg(args, int);
 	if (num == 0)
 	{
@@ -58,6 +59,11 @@ int printbin(va_list arg)
 	return (len);
 }
 
+/**
+ * printunsign - print unsigned int 
+ * @arg: argument.
+ * Return: number of charecter printed.
+*/
 int printunsign(va_list arg)
 {
 	unsigned int num;
