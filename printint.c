@@ -39,7 +39,11 @@ int printint(va_list args)
 	free(buffer);
 	return (i);
 }
-
+/**
+ * printbin - function to print numbers in binary format 
+ * @arg: argument
+ * Return: number of charecter printed.
+*/
 int printbin (va_list arg)
 {
 	unsigned int num;
