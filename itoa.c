@@ -9,8 +9,8 @@
 
 char *itoa(int val, int base)
 {
-	static char buf[32] = {0};
-	int i = 30;
+	static char buf[64] = {0};
+	int i = 62;
 
 	if (val < 0)
 		val *= -1;
