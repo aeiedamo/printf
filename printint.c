@@ -60,7 +60,7 @@ int printbin(va_list arg)
 
 	numstr = itoa_binary(num);
 	for (i = 0; numstr[i] != '\0'; i++, len++)
-	_putchar(numstr[i]);
+		_putchar(numstr[i]);
 
 	return (len);
 }
@@ -68,10 +68,9 @@ int printbin(va_list arg)
 /**
  * printunsign - print unsigned int
  * @arg: argument.
- * @base: base.
  * Return: number of charecter printed.
 */
-int printunsign(va_list arg, int base)
+int printunsign(va_list arg)
 {
 	unsigned int num;
 	char *numstr;
@@ -79,28 +78,9 @@ int printunsign(va_list arg, int base)
 
 	num = va_arg(arg, unsigned int);
 	if (num == 0)
-	{
 		return (_putchar('0'));
-	}
 
-	switch (base)
-	{
-	case (10):
-	numstr = itoao(num, 10, 1, 0);
-	break;
-	case (8):
-	numstr = itoao(num, 8, 1, 0);
-	break;
-	case(16):
-	numstr = itoao(num, 16, 1, 0);
-	break;
-	case(016):
-	numstr = itoao(num, 16, 1, 1);
-	break;
-	default:
-	break;
-	}
-
+	numstr = utoa(num, 10);
 	for (i = 0; numstr[i] != '\0'; i++, len++)
 		_putchar(numstr[i]);
 	return (len);

@@ -35,6 +35,23 @@ char *itoa(int val, int base)
 }
 
 /**
+ * utoa - convert numbers to string.
+ * @val: number.
+ * @base: base.
+ * Return: int as a string
+*/
+
+char *utoa(unsigned int val, int base)
+{
+	static char buf[32] = {0};
+	int i = 30;
+
+	for (; val && i; --i, val /= base)
+		buf[i] = "0123456789abcdef"[val % base];
+	return (&buf[i + 1]);
+}
+
+/**
  *itoa_binary - convert number to base 2 and make string from that number.
  *@val: number to be converted.
  * Return: buffer contain the string.
