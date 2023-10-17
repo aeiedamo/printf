@@ -24,7 +24,7 @@ int printString(va_list args)
 			_putchar('x');
 			if(str[count] < 16)
 				_putchar('0');
-			_printf("%X", str[count]);
+			_putchar(str[count]);
 			len++;
 		}
 		else
