@@ -49,7 +49,7 @@ int more_handle(char c, va_list args)
 	switch (c)
 	{
 		case 'b':
-			count += printbinary(args);
+			count += printbin(args);
 			break;
 		default:
 			count += _putchar('%');

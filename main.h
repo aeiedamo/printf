@@ -13,6 +13,9 @@ int more_handle(char c, va_list args);
 int printchar(va_list);
 int printstring(va_list);
 int printint(va_list);
-int printbinary (va_list arg);
+int check_base(int, int);
 char *itoa(int, int);
+int is_it_base2(int num);
+int is_it_base8(int num);
+int printbin (va_list);
 #endif
