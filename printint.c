@@ -31,17 +31,26 @@ int printint(va_list args)
 
 int printbin (va_list arg)
 {
-	 int num;
+	unsigned int num;
+	char *numstr;
+	int len, i;
 	num = va_arg(arg, unsigned int);
 
-	return (check_base(num, 2));
+	if (num == 0)
+		return (_putchar('0'));
+
+	numstr = itoa_binary(num);
+	for (i = 0; numstr[i] != '\0'; i++, len++)
+	_putchar(numstr[i]);
+
+	return (len);
 }
 
 /**
  * check_base - print numbers in chosen base.
  * @arg: argument
  * Return: number of charecter printed.
-*/
+
 int check_base(int num, int base)
 {
 	int i = 0, len = 0, check;
@@ -49,9 +58,7 @@ int check_base(int num, int base)
 
 	if (base == 2)
 	{
-		check = is_it_base2(num);
-		if (check == 1)
-		numstr = itoa((unsigned) num, 2);
+
 	}
 	else if(base == 8)
 	{
@@ -74,3 +81,4 @@ int check_base(int num, int base)
 	return (len);
 
 }
+*/
