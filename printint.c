@@ -93,8 +93,6 @@ int printunsign(va_list arg, int base)
 	default:
 	break;
 	}
-	if (numstr == NULL)
-	return(-1);
 
 	for (i = 0; numstr[i] != '\0'; i++, len++)
 		_putchar(numstr[i]);
