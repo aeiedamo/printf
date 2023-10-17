@@ -23,6 +23,9 @@ int _handle(char c, va_list args)
 		case 's':
 			count += printstring(args);
 			break;
+		case 'S':
+			count += printString(args);
+			break;
 		case 'i':
 		case 'd':
 			count += printint(args);
