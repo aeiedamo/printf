@@ -22,7 +22,7 @@ int printint(va_list args)
 	if (sign < 0)
 		num2str[i++] = '-';
 	
-	for (; i >= 0; --i)
+	for (; i >= 0; i--)
 		_putchar(num2str[i]);
 	num = _strlen(num2str);
 	free(num2str);
