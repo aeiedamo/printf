@@ -12,7 +12,7 @@ int printint(va_list args)
 
 	num = va_arg(args, int);
 	itoa(num, num2str, 10, 'd');
-	num = strlen(num2str);
+	num = _strlen(num2str);
 	for (; i < num; i++)
 		_putchar(num2str[i]);
 	free(num2str);
