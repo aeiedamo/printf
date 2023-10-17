@@ -60,8 +60,9 @@ int printbin(va_list arg)
 }
 
 /**
- * printunsign - print unsigned int 
+ * printunsign - print unsigned int
  * @arg: argument.
+ * @base: base.
  * Return: number of charecter printed.
 */
 int printunsign(va_list arg, int base)

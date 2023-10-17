@@ -1,11 +1,11 @@
 #include "main.h"
 
- /**
-  *itoa - converts integer to string.
-  *@val: integer value.
-  *@base: base system to use.
-  *Return: integer string.
-  */
+/**
+ * itoa - convert numbers to string.
+ * @val: number.
+ * @base: base.
+ * Return: pointer to the string.
+*/
 char *itoa(int val, int base)
 {
 	static char buf[32] = {0};
