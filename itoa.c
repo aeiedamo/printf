@@ -1,7 +1,7 @@
 #include "main.h"
 
  /**
-  * itoa - converts integer to string
+  *itoa - converts integer to string.
   * @val: integer value
   * @base: base system to use
   * Return: integer string
@@ -47,6 +47,7 @@ char *itoa_binary(unsigned int val)
  *@val: number to be converted.
  *@base: base to convert to.
  *@is_unsigned: check if the number unsigned type or not
+ *@upper: this just to handle %X so it print in uppercase.
  * Return: buffer contain the string.
 */
 char *itoao(int val, int base, int is_unsigned, int upper)
