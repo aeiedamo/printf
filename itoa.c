@@ -84,3 +84,4 @@ char *itoao(int val, int base, int is_unsigned, int upper)
 
 	return (&buf[i + 1]);
 }
+
