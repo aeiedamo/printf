@@ -7,17 +7,15 @@
  */
 int printint(va_list args)
 {
-	int i = 0, num;
+	int i, num;
 	char *num2str = malloc(sizeof(char));
 
 	num = va_arg(args, int);
 	itoa(num, num2str, 10, 'd');
-	num = _strlen(num2str);
-	for (; i < num; i++)
+	for (i = 0; num2str[i] != '\0'; i++)
 		_putchar(num2str[i]);
-	free(num2str);
 
-	return (num);
+	return (_strlen(num2str));
 }
 /**
  * printbin - function to print numbers in binary format.
