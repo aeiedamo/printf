@@ -7,26 +7,12 @@
  */
 int printint(va_list args)
 {
-	int num, i = 0, sign;
+	int num;
 	char *num2str = malloc(sizeof(char));
 
 	num = va_arg(args, int);
-	if ((sign = num) < 0)
-		num *= -1;
-
-	do
-	{
-		num2str[i++] = num % 10 + '0';
-	} while ((num /= 10) > 0);
-
-	if (sign < 0)
-		num2str[i++] = '-';
-	
-	for (; i >= 0; i--)
-		_putchar(num2str[i]);
-	num = _strlen(num2str);
-	free(num2str);
-	return (num);
+	itoa(num, num2str, 10, 'd');
+	return (write(1, num2str, _strlen(num2str)));
 }
 /**
  * printbin - function to print numbers in binary format.
