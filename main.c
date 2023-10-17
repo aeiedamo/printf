@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-    _printf("%b \n");
-    _printf("%i \n",1101111);
+
+    _printf("%u \n",1101111);
     return (0);
 }
