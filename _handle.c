@@ -11,6 +11,7 @@ int _handle(char c, va_list args)
 {
 	int count = 0;
 	char per = '%';
+
 	switch (c)
 	{
 		case '%':
