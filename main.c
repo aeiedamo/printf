@@ -11,6 +11,6 @@ int main(void)
 {
 
     _printf("%o %x %u %X\n", 'f', 783 , 783, 783);
-  
+  printf("%s", NULL);
     return (0);
 }
