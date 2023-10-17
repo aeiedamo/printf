@@ -5,18 +5,18 @@
  * @args: arguments
  * Return: length of number after converted to string
  */
-
 int printint(va_list args)
 {
-	int i = 0, len = 0, num;
+	int i, len = 0, num;
 	char *numstr;
-
 	num = va_arg(args, int);
-	numstr = itoa((int) num, 10);
+	
 	if (num == 0)
 	{
 		return (_putchar('0'));
 	}
+
+	numstr = itoao(num, 10, 0);
 
 	if (num < 0 && num != 0)
 	{
@@ -27,7 +27,6 @@ int printint(va_list args)
 		_putchar(numstr[i]);
 	return (len);
 }
-
 
 int printbin (va_list arg)
 {
@@ -57,9 +56,10 @@ int printunsign(va_list arg)
 	{
 		return (_putchar('0'));
 	}
-	numstr = itoa((int) num, 10);
+	numstr = itoao(num, 10, 1);
 
 	for (i = 0; numstr[i] != '\0'; i++, len++)
 		_putchar(numstr[i]);
+	
 	return (len);
 }

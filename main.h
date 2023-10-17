@@ -14,6 +14,7 @@ int printchar(va_list);
 int printstring(va_list);
 int printint(va_list);
 char *itoa_binary(unsigned int val);
+char *itoao(int val, int base, int is_unsigned);
 int printunsign(va_list);
 /*int check_base(int, int); */
 char *itoa(int, int);
