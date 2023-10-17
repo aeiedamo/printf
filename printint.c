@@ -12,7 +12,7 @@ int printint(va_list args)
 	char *numstr;
 
 	num = va_arg(args, int);
-	numstr = itoa(num, 10);
+	numstr = itoa((int) num, 10);
 	if (num < 0)
 	{
 		_putchar('-');
