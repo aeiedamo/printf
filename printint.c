@@ -1,4 +1,15 @@
 #include "main.h"
+/**
+ * printrev - print buffer 
+ * @buffer: buffer contains numbers as string.
+ * 
+*/
+void printrev(char *buffer)
+{
+	int i = _strlen(buffer);
+	for (; i >= 0; --i)
+	_putchar(buffer[i]);
+}
 
 /**
  * printint - function to print an integer
@@ -7,25 +18,25 @@
  */
 int printint(va_list args)
 {
-	int i, len = 0, num;
-	char *numstr;
+	int num, num2, i = 0;
+	char *buffer = malloc(sizeof(char *));
 	num = va_arg(args, int);
-	
+
 	if (num == 0)
-	{
 		return (_putchar('0'));
-	}
-
-	numstr = itoao(num, 10, 0);
-
-	if (num < 0 && num != 0)
+	num2 = num;
+	if (num < 0)
+		num *= -1;
+	while(num)
 	{
-		_putchar('-');
-		len++;
+		buffer[i++] = '0' + num % 10;
+		num /= 10;
 	}
-	for (i = 0; numstr[i] != '\0'; i++, len++)
-		_putchar(numstr[i]);
-	return (len);
+	if (num2 < 0)
+		buffer[i++] = '-';
+	printrev(buffer);
+	free(buffer);
+	return (i);
 }
 
 int printbin (va_list arg)
