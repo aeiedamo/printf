@@ -18,7 +18,5 @@ char *itoao(int, int, int, int);
 int printunsign(va_list, int);
 char *itoa(int, int);
 void printrev(char *buffer);
-int is_it_base2(int);
-int is_it_base8(int);
 int printbin(va_list);
 #endif
