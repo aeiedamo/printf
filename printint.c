@@ -36,7 +36,11 @@ int printint(va_list args)
 		_putchar(numstr[i]);
 	return (len);
 }
-
+/**
+ * printbin - function to print numbers in binary format 
+ * @arg: argument
+ * Return: number of charecter printed
+ */
 int printbin (va_list arg)
 {
 	unsigned int num;
