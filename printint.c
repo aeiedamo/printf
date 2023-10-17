@@ -8,18 +8,23 @@
 
 int printint(va_list args)
 {
-	int i = 0, len = 0, num;
+	int i = 0, len, num;
 	char *numstr;
 
 	num = va_arg(args, int);
 	numstr = itoa(num, 10);
+	len = _strlen(numstr);
 	if (num < 0)
 	{
 		_putchar('-');
 		len++;
+		for (i = 0; i < len - 1; i++)
+                	_putchar(numstr[i]);
 	}
-	len += _strlen(numstr);
-	for (i = 0; i < len; i++)
-		_putchar(numstr[i]);
+	else
+	{
+		for (i = 0; i < len; i++)
+			_putchar(numstr[i]);
+	}
 	return (len);
 }
