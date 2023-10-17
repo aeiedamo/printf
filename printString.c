@@ -22,10 +22,7 @@ int printString(va_list args)
 		{
 			_putchar('\\');
 			_putchar('x');
-			if (str[count] < 16)
-				_putchar('0');
-			else if (str[count] < 32)
-				_putchar('1');
+			_putchar("0123456789ABCDEF"[(str[count] / 16) % 16]);
 			_putchar("0123456789ABCDEF"[str[count] % 16]);
 			len++;
 		}
