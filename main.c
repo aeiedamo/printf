@@ -10,6 +10,6 @@
 int main(void)
 {
 
-    _printf("%u \n",1101111);
+    _printf("%b \n", 1101111);
     return (0);
 }

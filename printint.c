@@ -16,7 +16,7 @@ int printint(va_list args)
 		return (_putchar('0'));
 	}
 
-	numstr = itoao(num, 10, 0);
+	numstr = itoa(num, 10);
 
 	if (num < 0 && num != 0)
 	{
@@ -38,7 +38,7 @@ int printbin (va_list arg)
 	if (num == 0)
 		return (_putchar('0'));
 
-	numstr = itoa_binary(num);
+	numstr = itoa(num, 2);
 	for (i = 0; numstr[i] != '\0'; i++, len++)
 	_putchar(numstr[i]);
 
