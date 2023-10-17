@@ -13,7 +13,12 @@ int printint(va_list args)
 
 	num = va_arg(args, int);
 	numstr = itoa((int) num, 10);
-	if (num < 0)
+	if (num == 0)
+	{
+		return (_putchar('0'));
+	}
+	
+	if (num < 0 && num != 0)
 	{
 		_putchar('-');
 		len++;
