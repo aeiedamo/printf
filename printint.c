@@ -7,21 +7,41 @@
  */
 int printint(va_list args)
 {
-	char buf[32];
-        int i = 0, sign;
-        int num = va_arg(args, int);
+	int num = va_arg(args, int);
+	int tmp, d, col = 1;
+	int tmp2 = num % 10;
+	int i = 1;
 
-        if ((sign = num) < 0)
-                num *= -1;
-        do
-        {
-                buf[i++] = '0' + num % 10;
-                num /= 10;
-        } while (num > 0);
-        if (sign < 0)
-                buf[i++] = '-';
-        reverse(buf);
-        return (write(1, buf, i));
+	num /= 10;
+	tmp = num;
+
+	if (tmp2 < 0)
+	{
+		_putchar('-');
+		num *= -1;
+		tmp *= -1;
+		tmp2 *= -1;
+		i++;
+	}
+	if (tmp > 0)
+	{
+		while (tmp / 10 != 0)
+		{
+			col *= 10;
+			tmp /= 10;
+		}
+		tmp = num;
+		while (col > 0)
+		{
+			d = tmp / col;
+			_putchar(d + '0');
+			tmp = tmp - (d * col);
+			col /= 10;
+			i++;
+		}
+	}
+	_putchar(tmp2 + '0');
+	return (i);
 }
 /**
  * printbin - function to print numbers in binary format.
