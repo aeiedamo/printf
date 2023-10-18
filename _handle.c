@@ -65,7 +65,7 @@ int more_handle(char c, va_list args)
 			count += printhex(args, c);
 			break;
 		case 'p':
-			count += printunsign(args);
+			count += printpointer(args);
 			break;
 		default:
 			count += _putchar('%');

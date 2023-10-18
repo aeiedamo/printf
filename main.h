@@ -28,5 +28,6 @@ char *itoa(int val, int base);
 char *utoa(unsigned int, int);
 char *utoaX(unsigned int, int);
 int printString(va_list args);
+int printpointer(va_list args);
 
 #endif
