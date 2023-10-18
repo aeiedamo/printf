@@ -20,7 +20,10 @@ int printString(va_list args)
 	{
 		if (str[count] < 32 || str[count] >= 127)
 		{
-			_printf("\\x0%X", (int) str[count]);
+			if (str[count] < 16)
+				_printf("\\x0%X", str[count]);
+			else
+				_printf("\\x%X", str[count]);
 			len += 4;
 		}
 		else
