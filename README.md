@@ -17,6 +17,16 @@ The `printf` function is a fundamental and powerful function in C that allows fo
 
 ### supported formats:
 ```
+%c
+%s
+%%
+%d
+%i
+%b (builtin format binary represention)
+%u
+%o
+%x
+%X
 
 ```
 
