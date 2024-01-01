@@ -22,9 +22,9 @@ The `printf` function is a fundamental and powerful function in C that allows fo
 ### How to Use
 
 1. clone the `printf` using this command:
- '''
+ ```
 git clone https://github.com/aeiedamo/printf.git 
-'''
+```
 2.  include header file 'main.h' in your C program: `#include "main.h"`
 3. Call the `_printf` function with the desired format specifiers.
 
