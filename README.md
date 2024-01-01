@@ -14,9 +14,11 @@ The `printf` function is a fundamental and powerful function in C that allows fo
 - **__printf.c_**: Main source file with the `_printf` function and supporting functions.
 - **__any_file.c_**: Main source file with the helper functiosns used to handle some formats.
 - 
-- **_functions.c_**: Implementation of specific conversion specifiers (e.g., `%c`, `%s`, `%d`).
 
 ### supported formats:
+```
+
+```
 
 
 ### How to Use
